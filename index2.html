@@ -1,0 +1,2860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+  <title>Christina Ebert - Freelance Senior Product Designer, Munich</title>
+  <meta name="description" content="Freelance Senior Product Designer & Design Lead in Munich. 15 years of experience in healthcare, MedTech and complex enterprise products. Available for embedded engagements across Europe." />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://christinaebert.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://christinaebert.com/" />
+  <meta property="og:title" content="Christina Ebert - Freelance Senior Product Designer, Munich" />
+  <meta property="og:description" content="Freelance Senior Product Designer & Design Lead in Munich. 15 years in healthcare, MedTech and enterprise products. Available for embedded engagements." />
+  <meta property="og:image" content="https://christinaebert.com/images/og-preview.jpg" />
+  <meta property="og:locale" content="en_GB" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Christina Ebert - Freelance Senior Product Designer, Munich" />
+  <meta name="twitter:description" content="Freelance Senior Product Designer & Design Lead in Munich. 15 years in healthcare, MedTech and enterprise products." />
+  <meta name="twitter:image" content="https://christinaebert.com/images/og-preview.jpg" />
+
+  <!-- Structured Data: Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Christina Ebert",
+    "jobTitle": "Freelance Senior Product Designer & Design Lead",
+    "url": "https://christinaebert.com",
+    "email": "mail@christinaebert.com",
+    "telephone": "+4917620972993",
+    "image": "https://christinaebert.com/images/og-preview.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Munich",
+      "addressCountry": "DE"
+    },
+    "knowsAbout": [
+      "UX Design",
+      "Product Design",
+      "Design Lead",
+      "MedTech",
+      "Healthcare UX",
+      "Industry 4.0",
+      "Design Systems",
+      "Service Design"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Self-employed"
+    },
+    "sameAs": [
+      "https://linkedin.com/in/christinaannaebert"
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+
+    /* ─── Reset ─────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ─── Design tokens ─────────────────────────────────────────────── */
+    :root {
+      --purple:       #7c6fff;
+      --purple-dark:  #4a3fff;
+      --purple-pale:  #f0eeff;
+      --mint:         #2BCB9B;
+      --mint-pale:    #e4f8f1;
+      --ink:          #0d0c1d;
+      --ink-mid:      #3d3b52;
+      --ink-light:    #8e8ba8;
+      --cream:        #faf9f7;
+      --cream-dark:   #f2efe8;
+      --white:        #ffffff;
+      --serif:        'Playfair Display', Georgia, serif;
+      --sans:         'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ─── Layout primitives ─────────────────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+    .section { padding: 7rem 0; }
+
+    /* ─── Typography ────────────────────────────────────────────────── */
+    .display-xl { font-family: var(--serif); font-weight: 700; font-size: clamp(3.2rem, 7vw, 7rem); line-height: 1.06; letter-spacing: -0.025em; }
+    .display-lg { font-family: var(--serif); font-weight: 700; font-size: clamp(2.4rem, 5vw, 4.8rem); line-height: 1.1; letter-spacing: -0.02em; }
+    .display-md { font-family: var(--serif); font-weight: 700; font-size: clamp(1.8rem, 3vw, 2.8rem); line-height: 1.15; letter-spacing: -0.015em; }
+
+    .section-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 1rem;
+    }
+
+    /* ─── Scroll reveal ─────────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .reveal-delay-1 { transition-delay: 0.15s; }
+    .reveal-delay-2 { transition-delay: 0.28s; }
+    .reveal-delay-3 { transition-delay: 0.4s; }
+
+    /* ─── Availability badge ────────────────────────────────────────── */
+    .avail-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--white);
+      border: 1px solid rgba(13,12,29,0.07);
+      border-radius: 100px;
+      padding: 0.45rem 1rem 0.45rem 0.75rem;
+      font-size: 0.76rem;
+      font-weight: 500;
+      color: var(--ink-mid);
+      box-shadow: 0 2px 12px rgba(13,12,29,0.07);
+      white-space: nowrap;
+    }
+    .avail-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--mint);
+      flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(43,203,155,0.22);
+    }
+
+    /* ─── Language switch ───────────────────────────────────────────── */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 0.1rem;
+      flex-shrink: 0;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.3rem 0.45rem;
+      color: var(--ink-light);
+      font-size: 0.78rem;
+      font-weight: 600;
+      font-family: var(--sans);
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+      line-height: 1;
+    }
+    .lang-btn.active { color: var(--ink); }
+    .lang-btn:hover { color: var(--ink); }
+    .lang-divider {
+      color: var(--ink-light);
+      font-size: 0.7rem;
+      user-select: none;
+      line-height: 1;
+    }
+    .lang-switch-mobile {
+      padding: 0.6rem 3rem 0.2rem;
+      margin-top: 0.25rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       1. NAV
+       ═══════════════════════════════════════════════════════════════════ */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      padding: 0.75rem 0;
+      transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(250,249,247,0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 rgba(13,12,29,0.08);
+      padding: 0.75rem 0;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .nav-logo img {
+      height: 76px;
+      width: auto;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.25rem;
+      flex: 1;
+      justify-content: center;
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--ink-mid);
+      transition: color 0.2s;
+      position: relative;
+      padding-bottom: 2px;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0; right: 0;
+      height: 2px;
+      background: var(--purple);
+      border-radius: 2px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--ink); }
+    .nav-links a.active::after { transform: scaleX(1); }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 100px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: opacity 0.2s, transform 0.2s;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .nav-cta:hover { opacity: 0.82; transform: translateY(-2px); }
+
+    /* Mobile hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      flex-shrink: 0;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile nav panel */
+    .nav-mobile-panel {
+      display: none;
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      background: rgba(250,249,247,0.97);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(13,12,29,0.07);
+      padding: 1.25rem 0 1.75rem;
+      box-shadow: 0 12px 32px rgba(13,12,29,0.08);
+    }
+    .nav-mobile-panel.open { display: block; }
+    .nav-mobile-panel a {
+      display: block;
+      padding: 0.85rem 3rem;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--ink-mid);
+      transition: color 0.2s;
+    }
+    .nav-mobile-panel a:hover,
+    .nav-mobile-panel a.active { color: var(--ink); }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       2. HERO
+       ═══════════════════════════════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      background: var(--cream);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Decorative elements */
+    @keyframes deco-drift-a {
+      0%   { transform: translateY(0px) translateX(0px); }
+      33%  { transform: translateY(-40px) translateX(20px); }
+      66%  { transform: translateY(-20px) translateX(-15px); }
+      100% { transform: translateY(-50px) translateX(10px); }
+    }
+    @keyframes deco-drift-b {
+      0%   { transform: translateY(0px) translateX(0px) scale(1); }
+      50%  { transform: translateY(35px) translateX(-25px) scale(1.04); }
+      100% { transform: translateY(15px) translateX(-40px) scale(0.97); }
+    }
+    @keyframes deco-drift-c {
+      0%   { transform: translateY(0px) translateX(0px) scale(1); }
+      100% { transform: translateY(-30px) translateX(20px) scale(1.1); }
+    }
+
+    .hero-deco-ring {
+      position: absolute;
+      right: -6%;
+      top: -20%;
+      width: 52%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 1.5px solid rgba(124,111,255,0.18);
+      pointer-events: none;
+      z-index: 0;
+      animation: deco-drift-a 28s ease-in-out infinite alternate;
+    }
+    .hero-deco-fill {
+      position: absolute;
+      right: -2%;
+      top: -8%;
+      width: 38%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--purple-pale);
+      pointer-events: none;
+      z-index: 0;
+      animation: deco-drift-b 22s ease-in-out infinite alternate;
+      animation-delay: -6s;
+    }
+    .hero-deco-mint {
+      position: absolute;
+      left: -3%;
+      bottom: 6%;
+      width: 18%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--mint-pale);
+      pointer-events: none;
+      z-index: 0;
+      animation: deco-drift-c 16s ease-in-out infinite alternate;
+      animation-delay: -3s;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-deco-ring, .hero-deco-fill, .hero-deco-mint {
+        animation: none;
+      }
+    }
+
+    /* Hero body */
+    .hero-body {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      padding: 9rem 0 3rem;
+    }
+    .hero-body-inner {
+      display: flex;
+      align-items: center;
+      gap: 5rem;
+    }
+
+    /* Left content */
+    .hero-content {
+      flex: 0 0 56%;
+    }
+    .hero-eyebrow-wrap {
+      margin-bottom: 2.5rem;
+    }
+    .hero-heading {
+      font-family: var(--serif);
+      font-size: clamp(4rem, 6.5vw, 8.5rem);
+      font-weight: 700;
+      line-height: 0.96;
+      letter-spacing: -0.035em;
+      color: var(--ink);
+      margin-bottom: 2.25rem;
+    }
+    .hero-heading em {
+      font-style: italic;
+      color: var(--purple);
+      font-weight: 600;
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      line-height: 1.72;
+      color: var(--ink-mid);
+      max-width: 880px;
+      margin-bottom: 2.75rem;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      background: var(--ink);
+      color: var(--white);
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-hero-primary:hover { opacity: 0.82; transform: translateY(-2px); }
+    .btn-hero-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink);
+      border: 1.5px solid rgba(13,12,29,0.2);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .btn-hero-outline:hover { border-color: var(--ink); transform: translateY(-1px); }
+    .btn-purple {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      background: var(--purple);
+      color: var(--white);
+      border: none;
+      outline: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-purple:hover { background: var(--purple-dark); transform: translateY(-2px); }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink);
+      border: 1.5px solid rgba(13,12,29,0.2);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--ink); transform: translateY(-1px); }
+
+    /* Right photo */
+    .hero-photo-wrap {
+      flex: 1;
+      max-width: 420px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-photo-halo {
+      position: absolute;
+      inset: -18%;
+      border-radius: 50%;
+      background: radial-gradient(
+        ellipse at 55% 45%,
+        var(--purple-pale) 0%,
+        var(--mint-pale) 60%,
+        transparent 80%
+      );
+      z-index: 0;
+    }
+    .hero-photo-frame {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: 0;
+      overflow: hidden;
+      box-shadow:
+        0 32px 80px rgba(13,12,29,0.15),
+        0 6px 20px rgba(13,12,29,0.08);
+    }
+    .hero-photo-frame img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* Floating ID card */
+    .hero-id-card {
+      position: absolute;
+      bottom: 2.5rem;
+      left: -2.5rem;
+      z-index: 2;
+      background: var(--white);
+      border-radius: 18px;
+      padding: 1.1rem 1.4rem;
+      box-shadow:
+        0 12px 40px rgba(13,12,29,0.13),
+        0 2px 8px rgba(13,12,29,0.06);
+      min-width: 210px;
+    }
+    .hero-card-name {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+    .hero-card-role {
+      font-size: 0.72rem;
+      color: var(--ink-light);
+      margin-bottom: 0.65rem;
+    }
+    .hero-card-avail {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--mint);
+    }
+    .hero-card-avail::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--mint);
+      flex-shrink: 0;
+    }
+
+    /* Stats bar */
+    .hero-stats {
+      position: relative;
+      z-index: 1;
+      padding: 2rem 0;
+      border-top: 1px solid rgba(13,12,29,0.07);
+    }
+    .hero-stats-row {
+      display: flex;
+      align-items: center;
+    }
+    .hero-stat {
+      flex: 1;
+      padding: 0 2.5rem;
+    }
+    .hero-stat:first-child { padding-left: 0; }
+    .hero-stat-n {
+      display: block;
+      font-family: var(--serif);
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.02em;
+    }
+    .hero-stat-l {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--ink-light);
+      letter-spacing: 0.04em;
+    }
+    .hero-stat-sep {
+      width: 1px; height: 40px;
+      background: rgba(13,12,29,0.09);
+      flex-shrink: 0;
+    }
+
+    /* Hero entrance animation */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .hero-anim-1 { animation: fadeUp 0.7s 0.1s both; }
+    .hero-anim-2 { animation: fadeUp 0.8s 0.3s both; }
+    .hero-anim-3 { animation: fadeUp 0.7s 0.5s both; }
+    .hero-anim-4 { animation: fadeUp 0.7s 0.65s both; }
+    .hero-anim-5 { animation: fadeUp 0.7s 0.8s both; }
+    .hero-anim-6 { animation: fadeUp 0.7s 0.95s both; }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       3. MARQUEE
+       ═══════════════════════════════════════════════════════════════════ */
+    .marquee-section {
+      background: var(--cream-dark);
+      border-top: 1px solid rgba(13,12,29,0.07);
+      padding: 1.4rem 0;
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 3rem;
+      animation: marquee 50s linear infinite;
+      width: max-content;
+    }
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      white-space: nowrap;
+    }
+    .marquee-logo {
+      height: 26px;
+      width: auto;
+      filter: brightness(0) opacity(0.35);
+    }
+    .marquee-dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: rgba(13,12,29,0.2);
+      flex-shrink: 0;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       4. WORK
+       ═══════════════════════════════════════════════════════════════════ */
+    #work { background: var(--cream); }
+
+    .work-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .work-header-text h2 em {
+      font-style: italic;
+      color: var(--purple);
+    }
+    .work-dots {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding-bottom: 0.4rem;
+    }
+    .work-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 100px;
+      background: rgba(124,111,255,0.25);
+      transition: width 0.3s ease, background 0.3s ease;
+      cursor: pointer;
+      flex-shrink: 0;
+      border: none;
+      padding: 0;
+    }
+    .work-dot.active {
+      width: 28px;
+      background: var(--purple);
+    }
+    .work-nav-btns {
+      display: flex;
+      gap: 0.5rem;
+      flex-shrink: 0;
+      padding-bottom: 0.4rem;
+    }
+    .work-nav-btn {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: transparent;
+      border: 1.5px solid rgba(13,12,29,0.15);
+      color: var(--ink-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .work-nav-btn:hover {
+      background: var(--purple);
+      border-color: var(--purple);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+    .work-nav-btn:disabled {
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    /* Strip */
+    .work-strip-wrap {
+      overflow-x: auto;
+      overflow-y: visible;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 0.5rem 0 2rem;
+      cursor: default;
+    }
+    .work-strip-wrap::-webkit-scrollbar { display: none; }
+    .work-strip {
+      display: flex;
+      gap: 1.25rem;
+      width: max-content;
+      padding-right: 4rem;
+    }
+    .work-slide {
+      flex: 0 0 min(800px, calc(100vw - 4rem));
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .work-card {
+      display: block;
+      width: 100%;
+      color: inherit;
+      cursor: pointer;
+      border-radius: 32px;
+      overflow: hidden;
+      position: relative;
+      height: 520px;
+      background: #111;
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .work-card-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.6s ease;
+    }
+    .work-card:hover .work-card-bg { transform: scale(1.05); }
+    .work-card-video {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .work-card:hover .work-card-video { transform: scale(1.05); }
+    .work-card-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      padding: 0 0.25rem;
+    }
+    .work-card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .work-card-tag {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-mid);
+      border: 1px solid rgba(13,12,29,0.15);
+      border-radius: 100px;
+      padding: 0.25rem 0.7rem;
+    }
+    .work-card-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+    .work-card-detail {
+      font-size: 0.82rem;
+      line-height: 1.6;
+      color: var(--ink-mid);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .work-card-arrow {
+      position: absolute;
+      top: 1.25rem; right: 1.25rem;
+      z-index: 2;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.3);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      text-decoration: none;
+      transition: background 0.25s, border-color 0.25s, transform 0.25s;
+    }
+    .work-card:hover .work-card-arrow {
+      background: var(--purple);
+      border-color: var(--purple);
+      transform: rotate(-45deg);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       5. PROCESS
+       ═══════════════════════════════════════════════════════════════════ */
+    #process { background: var(--cream); }
+    .process-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .process-left .section-label { margin-bottom: 1rem; }
+    .process-left h2 { margin-bottom: 1.5rem; }
+    .process-left p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--ink-mid);
+    }
+
+    .process-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .process-step {
+      display: flex;
+      gap: 1.5rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(13,12,29,0.08);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .process-step:first-child { border-top: 1px solid rgba(13,12,29,0.08); }
+    .process-step:hover .process-step-num { background: var(--purple); color: var(--white); }
+    .process-step-num {
+      flex-shrink: 0;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(13,12,29,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ink-mid);
+      transition: var(--transition);
+    }
+    .process-step-content { }
+    .process-step-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+    .process-step-tagline {
+      font-size: 0.875rem;
+      font-style: italic;
+      color: var(--ink-mid);
+      margin-bottom: 0.5rem;
+    }
+    .process-step-keywords {
+      font-size: 0.75rem;
+      color: rgba(13,12,29,0.45);
+      line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       6. TESTIMONIALS
+       ═══════════════════════════════════════════════════════════════════ */
+    #testimonials { background: var(--cream-dark); }
+
+    .testimonials-header { margin-bottom: 3rem; }
+    .testimonials-header h2 { color: var(--ink); }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .testimonials-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 1.8rem;
+      box-shadow: 0 2px 16px rgba(13,12,29,0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .testimonial-quote::before { content: '\201C'; }
+    .testimonial-quote::after  { content: '\201D'; }
+    .testimonial-quote {
+      font-size: 0.875rem;
+      line-height: 1.75;
+      color: var(--ink-mid);
+      position: relative;
+      z-index: 1;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .testimonial-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .testimonial-avatar img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .testimonial-meta strong {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .testimonial-meta span {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--ink-light);
+      margin-top: 0.1rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       7. ABOUT
+       ═══════════════════════════════════════════════════════════════════ */
+    #about { background: var(--cream); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 45% 55%;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    /* Photo column */
+    .about-image-wrap {
+      position: relative;
+    }
+    .about-image {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: 24px;
+      overflow: hidden;
+      background: var(--purple-pale);
+    }
+    .about-image-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-badge {
+      position: absolute;
+      bottom: 2rem;
+      right: -2rem;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 1.2rem 1.5rem;
+      box-shadow: 0 2px 12px rgba(13,12,29,0.07);
+      border: 1px solid rgba(13,12,29,0.07);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .about-badge-icon {
+      width: 40px; height: 40px;
+      background: var(--purple);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+    }
+    .about-badge-text { font-size: 0.8rem; line-height: 1.4; }
+    .about-badge-text strong { display: block; color: var(--ink); font-weight: 600; }
+    .about-badge-text span { color: var(--ink-light); }
+
+    /* Text column */
+    .about-content h2 {
+      margin-bottom: 1.75rem;
+      max-width: 544px;
+    }
+    .about-content h2 em {
+      font-style: italic;
+      color: var(--purple);
+    }
+    .about-content p {
+      max-width: 544px;
+      font-size: 1.025rem;
+      line-height: 1.82;
+      color: var(--ink-mid);
+      margin-bottom: 1.25rem;
+    }
+    .about-content p:last-child { margin-bottom: 0; }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       8. COLLABORATION
+       ═══════════════════════════════════════════════════════════════════ */
+    #collaboration { background: var(--white); }
+
+    .collab-header {
+      max-width: 544px;
+      margin-bottom: 3.5rem;
+    }
+    .collab-header h2 em {
+      font-style: italic;
+      color: var(--purple);
+    }
+    .collab-sub {
+      margin-top: 1.25rem;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--ink-mid);
+    }
+
+    .collab-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    /* Card 1 - light */
+    .collab-card-light {
+      background: var(--cream);
+      border: 1px solid rgba(124,111,255,0.15);
+      border-radius: 20px;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .collab-badge-light {
+      display: inline-block;
+      background: var(--purple-pale);
+      color: var(--purple);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.85rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+    .collab-card-light h3 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.22;
+      color: var(--ink);
+      margin-bottom: 0.85rem;
+    }
+    .collab-card-light h3 em {
+      font-style: italic;
+      color: var(--purple);
+    }
+    .collab-card-light p {
+      font-size: 0.9rem;
+      line-height: 1.68;
+      color: var(--ink-mid);
+    }
+    .collab-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      margin-top: 0.5rem;
+    }
+    .collab-list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+      color: var(--ink-mid);
+    }
+    .collab-list-item svg { flex-shrink: 0; margin-top: 2px; }
+    .collab-cta-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink);
+      border: 1.5px solid rgba(13,12,29,0.2);
+      transition: border-color 0.2s, transform 0.2s;
+      margin-top: auto;
+      align-self: flex-start;
+    }
+    .collab-cta-outline:hover { border-color: var(--ink); transform: translateY(-1px); }
+
+    /* Card 2 - dark */
+    .collab-card-dark {
+      background: var(--purple);
+      border: none;
+      border-radius: 20px;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .collab-badge-dark {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.85rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+    .collab-card-dark h3 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.22;
+      color: var(--white);
+      margin-bottom: 0.85rem;
+    }
+    .collab-card-dark h3 em {
+      font-style: italic;
+      color: var(--white);
+    }
+    .collab-card-dark p {
+      font-size: 0.9rem;
+      line-height: 1.68;
+      color: rgba(255,255,255,0.8);
+    }
+    .collab-list-dark {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      margin-top: 0.5rem;
+    }
+    .collab-list-dark-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.85);
+    }
+    .collab-list-dark-item svg { flex-shrink: 0; margin-top: 2px; color: var(--white); }
+    .collab-cta-filled {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      background: var(--yellow, #f5c842);
+      color: var(--ink);
+      border: none;
+      transition: opacity 0.2s, transform 0.2s;
+      margin-top: auto;
+      align-self: flex-start;
+    }
+    .collab-cta-filled:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       9. CONTACT
+       ═══════════════════════════════════════════════════════════════════ */
+    #contact {
+      background: var(--white);
+      padding: 5rem 0;
+      text-align: center;
+    }
+    .contact-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .contact-heading {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      max-width: 480px;
+      margin: 0;
+    }
+    .contact-heading em { font-style: italic; color: var(--purple); }
+    .contact-sub {
+      font-size: 1.05rem;
+      line-height: 1.72;
+      color: rgba(13,12,29,0.5);
+      max-width: 480px;
+      margin: 0;
+    }
+    .contact-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       10. CONTACT MODAL
+       ═══════════════════════════════════════════════════════════════════ */
+    .cmodal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: rgba(13,12,29,0.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .cmodal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .cmodal-panel {
+      position: relative;
+      background: var(--cream);
+      border-radius: 24px;
+      padding: 3rem;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 40px 100px rgba(13,12,29,0.22), 0 0 0 1px rgba(13,12,29,0.06);
+      transform: translateY(20px) scale(0.98);
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s ease;
+      opacity: 0;
+      overflow: hidden;
+    }
+    .cmodal-overlay.open .cmodal-panel {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    .cmodal-close {
+      position: absolute;
+      top: 1.25rem; right: 1.25rem;
+      z-index: 10;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(13,12,29,0.1);
+      background: var(--white);
+      color: var(--ink-mid);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+      flex-shrink: 0;
+    }
+    .cmodal-close:hover {
+      border-color: var(--ink);
+      color: var(--ink);
+      transform: rotate(90deg);
+    }
+    .cmodal-avail {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--mint-pale);
+      border-radius: 100px;
+      padding: 0.35rem 0.85rem 0.35rem 0.65rem;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: #1a7a5e;
+      margin-bottom: 1.5rem;
+    }
+    .cmodal-avail-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--mint);
+      flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(43,203,155,0.22);
+    }
+    .cmodal-heading {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin-bottom: 0.9rem;
+    }
+    .cmodal-heading em { font-style: italic; color: var(--purple); }
+    .cmodal-sub {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--ink-light);
+      margin-bottom: 2rem;
+    }
+    .cmodal-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+    .cmodal-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      background: var(--purple);
+      color: var(--white);
+      border: none;
+      outline: none;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
+    }
+    .cmodal-btn-primary:hover {
+      background: var(--purple-dark);
+      transform: translateY(-2px);
+    }
+    .cmodal-btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink);
+      border: 1.5px solid rgba(13,12,29,0.2);
+      transition: border-color 0.2s, transform 0.2s;
+      white-space: nowrap;
+    }
+    .cmodal-btn-ghost:hover { border-color: var(--ink); transform: translateY(-1px); }
+    @media (max-width: 480px) {
+      .cmodal-panel { padding: 2rem 1.5rem; }
+      .cmodal-actions { flex-direction: column; align-items: stretch; }
+      .cmodal-btn-primary, .cmodal-btn-ghost { justify-content: center; }
+    }
+
+    /* ── Contact form modal ── */
+    .cfm-panel {
+      max-width: 1000px; padding: 0;
+      overflow: hidden; border-radius: 24px;
+    }
+    .cfm-layout {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      min-height: 560px;
+    }
+    /* Left panel */
+    .cfm-left {
+      background: var(--cream);
+      padding: 3rem 2.5rem;
+      display: flex; flex-direction: column; gap: 1.5rem;
+      position: relative; overflow: hidden;
+    }
+    .cfm-left-badge {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      background: rgba(124,111,255,0.1); border-radius: 100px;
+      padding: 0.35rem 0.85rem; font-size: 0.74rem; font-weight: 500;
+      color: var(--purple); width: fit-content; position: relative; z-index: 1;
+    }
+    .cfm-left-badge-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--mint); flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(43,203,155,0.3);
+    }
+    .cfm-heading {
+      font-family: var(--serif);
+      font-size: clamp(1.7rem, 2.5vw, 2.2rem);
+      font-weight: 700; line-height: 1.15; letter-spacing: -0.02em;
+      color: var(--ink); position: relative; z-index: 1;
+    }
+    .cfm-heading em { font-style: italic; color: var(--purple); }
+    .cfm-intro {
+      font-size: 0.9rem; line-height: 1.72;
+      color: var(--ink-mid); position: relative; z-index: 1;
+    }
+    .cfm-trust {
+      list-style: none; display: flex; flex-direction: column; gap: 0.75rem;
+      margin-top: auto; position: relative; z-index: 1;
+    }
+    .cfm-trust li {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      font-size: 0.84rem; color: var(--ink-mid); line-height: 1.5;
+    }
+    .cfm-trust li svg { flex-shrink: 0; margin-top: 2px; color: var(--purple); }
+.cfm-deco-fill {
+      position: absolute;
+      right: -10%; bottom: -5%;
+      width: 55%; aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--purple-pale);
+      pointer-events: none;
+      animation: deco-drift-b 22s ease-in-out infinite alternate;
+      animation-delay: -6s;
+    }
+    .cfm-deco-mint {
+      position: absolute;
+      left: -8%; top: 5%;
+      width: 30%; aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--mint-pale);
+      pointer-events: none;
+      animation: deco-drift-c 16s ease-in-out infinite alternate;
+      animation-delay: -3s;
+    }
+    /* Right panel */
+    .cfm-right {
+      background: var(--cream);
+      padding: 3rem;
+      overflow-y: auto;
+      max-height: 88vh;
+    }
+    .cfm-fields {
+      display: flex; flex-direction: column; gap: 1.1rem;
+    }
+    .cfm-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .cfm-field {
+      display: flex; flex-direction: column; gap: 0.4rem;
+    }
+    .cfm-field label {
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--ink); line-height: 1.4;
+    }
+    .cfm-field input,
+    .cfm-field textarea {
+      font-family: var(--sans); font-size: 0.9rem;
+      color: var(--ink); background: var(--white);
+      border: 1.5px solid rgba(13,12,29,0.1);
+      border-radius: 10px; padding: 0.8rem 1rem;
+      outline: none; resize: none; width: 100%;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .cfm-field input:focus,
+    .cfm-field textarea:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(124,111,255,0.12);
+    }
+    .cfm-field textarea { min-height: 88px; }
+    /* Custom checkbox */
+    .cfm-check {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      margin-top: 0.25rem; cursor: pointer;
+    }
+    .cfm-check input[type="checkbox"] {
+      position: absolute; opacity: 0; width: 0; height: 0;
+    }
+    .cfm-check-box {
+      width: 18px; height: 18px; min-width: 18px;
+      border: 1.5px solid rgba(13,12,29,0.2);
+      border-radius: 5px; background: var(--white);
+      margin-top: 2px; transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cfm-check input[type="checkbox"]:checked ~ .cfm-check-box {
+      background: var(--purple); border-color: var(--purple);
+    }
+    .cfm-check input[type="checkbox"]:checked ~ .cfm-check-box::after {
+      content: '';
+      display: block;
+      width: 9px; height: 5px;
+      border-left: 2px solid #fff; border-bottom: 2px solid #fff;
+      transform: rotate(-45deg) translate(1px, -1px);
+    }
+    .cfm-check-box.error {
+      border-color: #e05c5c;
+      box-shadow: 0 0 0 3px rgba(224,92,92,0.15);
+    }
+    .cfm-check-text {
+      font-size: 0.8rem; line-height: 1.6; color: var(--ink-mid);
+    }
+    .cfm-check-text a { color: var(--purple); text-decoration: underline; }
+    .cfm-footer {
+      display: flex; align-items: center; gap: 1.25rem; margin-top: 0.5rem;
+    }
+    .cfm-note { font-size: 0.8rem; color: var(--ink-light); }
+    .cfm-success {
+      display: none; text-align: center; padding: 3rem 1rem;
+    }
+    .cfm-success-icon {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: rgba(43,203,155,0.12); color: #2BCB9B;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.25rem;
+    }
+    .cfm-success p { font-size: 0.9rem; color: var(--ink-mid); line-height: 1.68; max-width: 320px; margin: 0 auto; }
+    .cfm-panel.sent .cfm-left { display: none; }
+    .cfm-panel.sent .cfm-layout { grid-template-columns: 1fr; }
+    .cfm-panel.sent .cfm-right {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 320px;
+    }
+    @media (max-width: 760px) {
+      .cfm-layout { grid-template-columns: 1fr; }
+      .cfm-left { padding: 2.5rem 2rem 2rem; min-height: auto; }
+      .cfm-left::before { display: none; }
+      .cfm-trust { display: none; }
+      .cfm-right { padding: 2rem; max-height: none; }
+      .cfm-row { grid-template-columns: 1fr; }
+      .cfm-footer { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       11. FOOTER
+       ═══════════════════════════════════════════════════════════════════ */
+    footer {
+      background: var(--white);
+      padding: 2rem 0;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .footer-link {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-link:hover { color: var(--ink); }
+    .footer-link-underline { text-decoration: underline; }
+
+    /* ─── Gallery custom cursor ────────────────────────────────────── */
+    #galleryCursor {
+      position: fixed;
+      top: 0; left: 0;
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      will-change: transform;
+    }
+    #galleryCursor.visible {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    #galleryCursorIcon {
+      transition: transform 0.15s ease;
+    }
+    .work-strip-wrap .work-card { cursor: none; }
+    .work-strip-wrap .work-card-arrow { cursor: pointer; }
+
+    /* ─── Back to top ───────────────────────────────────────────────── */
+    #back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 300;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--white);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px rgba(13,12,29,0.22);
+    }
+    #back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #back-to-top:hover { background: var(--purple); transform: translateY(-2px); }
+
+    /* ─── Responsive ────────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .about-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 900px) {
+      .hero-body-inner { flex-direction: column; gap: 3rem; }
+      .hero-content { flex: none; width: 100%; }
+      .hero-photo-wrap { max-width: 320px; width: 100%; }
+      .hero-id-card { left: -1rem; }
+      .collab-cards { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-badge { right: 0; }
+      .process-layout { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 0 1.5rem; }
+      .section { padding: 4.5rem 0; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: flex; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .work-header { flex-direction: column; align-items: flex-start; }
+      .work-slide { flex: 0 0 calc(100vw - 2rem); }
+      .work-card { height: auto; aspect-ratio: 4/3; }
+      .hero-stats-row { flex-wrap: wrap; gap: 1.5rem; }
+      .hero-stat-sep { display: none; }
+      .hero-stat { flex: 0 0 45%; padding: 0; }
+      .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+      .footer-links { flex-direction: column; gap: 0.75rem; }
+
+    }
+
+  </style>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <!-- ─── Navigation ────────────────────────────────────────────────── -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo"><img src="../images/LogoChristina.svg" alt="Christina Ebert" /></a>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#work" data-i18n="nav_work">Work</a></li>
+          <li><a href="#process" data-i18n="nav_process">Process</a></li>
+          <li><a href="#testimonials" data-i18n="nav_testimonials">Testimonials</a></li>
+          <li><a href="#about" data-i18n="nav_about">About</a></li>
+          <li><a href="#collaboration" data-i18n="nav_collab">Work with me</a></li>
+        </ul>
+
+        <a href="#contact" class="nav-cta" data-contact-modal data-i18n="nav_cta">Let's chat</a>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <div class="nav-mobile-panel" id="navMobile">
+        <a href="#work" data-i18n="nav_work">Work</a>
+        <a href="#process" data-i18n="nav_process">Process</a>
+        <a href="#testimonials" data-i18n="nav_testimonials">Testimonials</a>
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#collaboration" data-i18n="nav_collab">Work with me</a>
+        <a href="#contact" data-contact-modal data-i18n="nav_cta">Let's chat</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ─── Hero ──────────────────────────────────────────────────────── -->
+  <section id="hero">
+    <!-- Decorative shapes - hero only -->
+    <div class="hero-deco-ring" aria-hidden="true"></div>
+    <div class="hero-deco-fill" aria-hidden="true"></div>
+    <div class="hero-deco-mint" aria-hidden="true"></div>
+
+    <div class="hero-body">
+      <div class="container">
+        <div class="hero-body-inner">
+
+          <!-- Left: content -->
+          <div class="hero-content">
+            <div class="hero-eyebrow-wrap hero-anim-1">
+              <span class="avail-badge">
+                <span class="avail-dot"></span>
+                <span data-i18n="hero_badge">Available for new projects · 2026</span>
+              </span>
+            </div>
+
+            <h1 class="hero-heading hero-anim-2" data-i18n="hero_heading">
+              Designing<br/>
+              <em>experiences</em><br/>
+              that matter.
+            </h1>
+
+            <p class="hero-sub hero-anim-3" data-i18n="hero_sub">
+              Hi, I'm Christina. I help product teams create great digital experiences – by connecting design, strategy and business. Before the first prompt. Before the first pixel.
+            </p>
+
+            <div class="hero-actions hero-anim-4">
+              <a href="#work" class="btn-hero-primary">
+                <span data-i18n="hero_cta_primary">View my work</span>
+                <i data-lucide="arrow-right" width="16" height="16"></i>
+              </a>
+              <a href="#contact" class="btn-hero-outline" data-contact-modal data-i18n="hero_cta_secondary">Let's chat</a>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+
+
+  <!-- ─── Marquee ───────────────────────────────────────────────────── -->
+  <div class="marquee-section" aria-label="Companies I've worked with">
+    <div class="marquee-track">
+      <!-- Set 1 -->
+      <div class="marquee-item"><img class="marquee-logo" src="../images/zeiss-logo.svg" alt="Zeiss" /><span class="marquee-dot" aria-hidden="true"></span></div>
+      <div class="marquee-item"><img class="marquee-logo" src="../images/siemens-healthineers-logo.svg" alt="Siemens Healthineers" /><span class="marquee-dot" aria-hidden="true"></span></div>
+      <div class="marquee-item"><img class="marquee-logo" src="../images/Steelcase.png" alt="Steelcase" /><span class="marquee-dot" aria-hidden="true"></span></div>
+      <div class="marquee-item"><img class="marquee-logo" src="../images/Futurice.svg" alt="Futurice" /><span class="marquee-dot" aria-hidden="true"></span></div>
+      <div class="marquee-item"><img class="marquee-logo" src="../images/designit.png" alt="Designit" /><span class="marquee-dot" aria-hidden="true"></span></div>
+      <div class="marquee-item"><img class="marquee-logo" src="../images/Froglogo2.png" alt="frog design" /><span class="marquee-dot" aria-hidden="true"></span></div>
+      <div class="marquee-item"><img class="marquee-logo" src="../images/MUUVR logo.png" alt="MUUVR" /><span class="marquee-dot" aria-hidden="true"></span></div>
+      <div class="marquee-item"><img class="marquee-logo" src="../images/mozak-logo.svg" alt="Mozak" /><span class="marquee-dot" aria-hidden="true"></span></div>
+      <div class="marquee-item"><img class="marquee-logo" src="../images/HochschuleMuenchen.png" alt="Hochschule München" /><span class="marquee-dot" aria-hidden="true"></span></div>
+      <!-- Set 2 - seamless loop -->
+      <div class="marquee-item"><img class="marquee-logo" src="../images/zeiss-logo.svg" alt="" aria-hidden="true" /><span class="marquee-dot" aria-hidden="true"></span></div>
+      <div class="marquee-item"><img class="marquee-logo" src="../images/siemens-healthineers-logo.svg" alt="" aria-hidden="true" /><span class="marquee-dot" aria-hidden="true"></span></div>
+      <div class="marquee-item"><img class="marquee-logo" src="../images/Steelcase.png" alt="" aria-hidden="true" /><span class="marquee-dot" aria-hidden="true"></span></div>
+      <div class="marquee-item"><img class="marquee-logo" src="../images/Futurice.svg" alt="" aria-hidden="true" /><span class="marquee-dot" aria-hidden="true"></span></div>
+      <div class="marquee-item"><img class="marquee-logo" src="../images/designit.png" alt="" aria-hidden="true" /><span class="marquee-dot" aria-hidden="true"></span></div>
+      <div class="marquee-item"><img class="marquee-logo" src="../images/Froglogo2.png" alt="" aria-hidden="true" /><span class="marquee-dot" aria-hidden="true"></span></div>
+      <div class="marquee-item"><img class="marquee-logo" src="../images/MUUVR logo.png" alt="" aria-hidden="true" /><span class="marquee-dot" aria-hidden="true"></span></div>
+      <div class="marquee-item"><img class="marquee-logo" src="../images/mozak-logo.svg" alt="" aria-hidden="true" /><span class="marquee-dot" aria-hidden="true"></span></div>
+      <div class="marquee-item"><img class="marquee-logo" src="../images/HochschuleMuenchen.png" alt="" aria-hidden="true" /><span class="marquee-dot" aria-hidden="true"></span></div>
+    </div>
+  </div>
+
+
+  <!-- ─── Work ─────────────────────────────────────────────────────── -->
+  <section id="work" class="section">
+    <div class="container">
+
+      <div class="work-header reveal">
+        <div class="work-header-text">
+          <span class="section-label" data-i18n="work_label">A few recent projects</span>
+          <h2 class="display-md" data-i18n="work_heading">Selected <em>projects.</em></h2>
+        </div>
+        <div class="work-dots" id="workDots" aria-label="Gallery progress"></div>
+      </div>
+
+      <div class="work-strip-wrap reveal" id="workStrip">
+        <div class="work-strip">
+
+          <!-- 1 - MUUVR -->
+          <div class="work-slide">
+            <div class="work-card">
+              <video class="work-card-video" src="../images/muuvr-hero.mp4" autoplay muted loop playsinline poster="../images/muuvr-poster.jpg"></video>
+            </div>
+            <div class="work-card-info">
+              <div class="work-card-tags">
+                <span class="work-card-tag">Health &amp; Fitness</span>
+                <span class="work-card-tag">Loyalty</span>
+                <span class="work-card-tag">2025</span>
+              </div>
+              <div class="work-card-title" data-i18n="work_muuvr_title">MUUVR — A sports loyalty program</div>
+              <div class="work-card-detail" data-i18n="work_muuvr_detail">Analysed the full product journey to identify experience gaps, then led design of the in-app shopping experience - creating a seamless handoff between the MUUVR app and a third-party purchase, shipping and returns flow.</div>
+            </div>
+          </div>
+
+          <!-- 2 - Siemens Healthineers -->
+          <div class="work-slide">
+            <div class="work-card">
+              <div class="work-card-bg" style="background-image: url('../images/healthineers-hero2.webp'); background-color:#00002d;"></div>
+            </div>
+            <div class="work-card-info">
+              <div class="work-card-tags">
+                <span class="work-card-tag">MedTech</span>
+                <span class="work-card-tag">Healthcare</span>
+                <span class="work-card-tag">AI</span>
+                <span class="work-card-tag">2025</span>
+              </div>
+              <div class="work-card-title">Siemens Healthineers — syngo.via</div>
+              <div class="work-card-detail" data-i18n="work_healthineers_detail">Leading UX design for the neurology and emergency modules of syngo.via, the global imaging and diagnostic platform. Designing new features to improve CT post-processing workflows for radiologists in time-critical contexts while exploring AI opportunities.</div>
+            </div>
+          </div>
+
+          <!-- 3 - Mozak -->
+          <div class="work-slide">
+            <div class="work-card">
+              <div class="work-card-bg" style="background-image: url('../images/mozak-acc04.png'); background-color:#071a10;"></div>
+            </div>
+            <div class="work-card-info">
+              <div class="work-card-tags">
+                <span class="work-card-tag">Industrial</span>
+                <span class="work-card-tag">SaaS</span>
+                <span class="work-card-tag">B2B</span>
+                <span class="work-card-tag">2024</span>
+              </div>
+              <div class="work-card-title" data-i18n="work_mozak_title">Mozak — SaaS for pharma manufacturing</div>
+              <div class="work-card-detail" data-i18n="work_mozak_detail">Joined when UX was nonexistent and handled solely by developers. Introduced design principles, built a design-driven mindset from scratch, and delivered a full redesign. Resulted in user satisfaction scores of 5.0/5 for interface and 4.8/5 for performance.</div>
+            </div>
+          </div>
+
+          <!-- 4 - Hochschule München -->
+          <div class="work-slide">
+            <div class="work-card">
+              <div class="work-card-bg" style="background-image: url('../images/hochschule-hero.png'); background-color:#0a1628;"></div>
+            </div>
+            <div class="work-card-info">
+              <div class="work-card-tags">
+                <span class="work-card-tag">AI</span>
+                <span class="work-card-tag">Education</span>
+                <span class="work-card-tag">Conversational UX</span>
+                <span class="work-card-tag">2024</span>
+              </div>
+              <div class="work-card-title" data-i18n="work_hm_title">Hochschule München — AI Chatbot Design</div>
+              <div class="work-card-detail" data-i18n="work_hm_detail">Guided students through the end-to-end product design process for an AI chatbot - from research and concept through to prototype. Evaluated AI-assisted design tools and encouraged critical thinking around AI's role in the design process.</div>
+            </div>
+          </div>
+
+          <!-- 5 - Zeiss -->
+          <div class="work-slide">
+            <div class="work-card">
+              <div class="work-card-bg" style="background-image: url('../images/zeiss-hero.jpg'); background-color:#0a1628;"></div>
+            </div>
+            <div class="work-card-info">
+              <div class="work-card-tags">
+                <span class="work-card-tag">MedTech</span>
+                <span class="work-card-tag">Product Discovery</span>
+                <span class="work-card-tag">2021–2023</span>
+              </div>
+              <div class="work-card-title" data-i18n="work_zeiss_title">Zeiss — Remote Surgery Application</div>
+              <div class="work-card-detail" data-i18n="work_zeiss_detail">Led a product discovery project to design a remote control feature for the ZEISS Intrabeam 600 intraoperative radiotherapy system - enabling remote oncologists to participate in tumour treatment surgery from anywhere in the world.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ─── Process ──────────────────────────────────────────────────── -->
+  <section id="process" class="section">
+    <div class="container">
+      <div class="process-layout">
+
+        <div class="process-left">
+          <span class="section-label reveal" data-i18n="process_label">How I work</span>
+          <h2 class="display-lg reveal reveal-delay-1" data-i18n="process_heading">A process built around <em style="color:var(--purple)">your</em> problem, not a template.</h2>
+          <p class="reveal reveal-delay-2" data-i18n="process_body">
+            Every engagement is different. But the thinking behind it isn't — I start with understanding before I start designing. Design is a team sport, and I play best when I'm embedded, not outsourced.
+          </p>
+        </div>
+
+      <div class="process-steps">
+
+        <div class="process-step reveal">
+          <div class="process-step-num" aria-hidden="true">01</div>
+          <div class="process-step-content">
+            <div class="process-step-title" data-i18n="process_1_title">Discover &amp; Research</div>
+            <div class="process-step-tagline" data-i18n="process_1_tagline">I listen before I sketch.</div>
+            <div class="process-step-keywords" data-i18n="process_1_kw">User &amp; stakeholder interviews · Vision mapping · Product value proposition · Competitive analysis</div>
+          </div>
+        </div>
+
+        <div class="process-step reveal reveal-delay-1">
+          <div class="process-step-num" aria-hidden="true">02</div>
+          <div class="process-step-content">
+            <div class="process-step-title" data-i18n="process_2_title">Define &amp; Frame</div>
+            <div class="process-step-tagline" data-i18n="process_2_tagline">Clarity before creativity.</div>
+            <div class="process-step-keywords" data-i18n="process_2_kw">User personas · Empathy mapping · Problem statements · User journey mapping · Jobs to be done</div>
+          </div>
+        </div>
+
+        <div class="process-step reveal reveal-delay-2">
+          <div class="process-step-num" aria-hidden="true">03</div>
+          <div class="process-step-content">
+            <div class="process-step-title" data-i18n="process_3_title">Ideate &amp; Prototype</div>
+            <div class="process-step-tagline" data-i18n="process_3_tagline">Ideas are cheap. Tangible beats theoretical.</div>
+            <div class="process-step-keywords" data-i18n="process_3_kw">Design sprints · Wireframing · Interactive prototypes · Service blueprinting · Co-creation workshops</div>
+          </div>
+        </div>
+
+        <div class="process-step reveal reveal-delay-3">
+          <div class="process-step-num" aria-hidden="true">04</div>
+          <div class="process-step-content">
+            <div class="process-step-title" data-i18n="process_4_title">Test &amp; Iterate</div>
+            <div class="process-step-tagline" data-i18n="process_4_tagline">Assumptions are expensive. Testing isn't.</div>
+            <div class="process-step-keywords" data-i18n="process_4_kw">Usability testing · UX &amp; accessibility audit · A/B experiments · Expert review · Moderated &amp; unmoderated studies</div>
+          </div>
+        </div>
+
+        <div class="process-step reveal reveal-delay-3">
+          <div class="process-step-num" aria-hidden="true">05</div>
+          <div class="process-step-content">
+            <div class="process-step-title" data-i18n="process_5_title">Deliver &amp; Handoff</div>
+            <div class="process-step-tagline" data-i18n="process_5_tagline">Designed to be built, not just admired.</div>
+            <div class="process-step-keywords" data-i18n="process_5_kw">Pixel-perfect specs · Design system · Developer handoff · Annotation &amp; documentation · QA support</div>
+          </div>
+        </div>
+
+      </div>
+      </div><!-- /process-layout -->
+    </div>
+  </section>
+
+
+  <!-- ─── Testimonials ─────────────────────────────────────────────── -->
+  <section id="testimonials" class="section">
+    <div class="container">
+
+      <div class="testimonials-header reveal">
+        <span class="section-label" data-i18n="test_label">Kind words</span>
+        <h2 class="display-md" data-i18n="test_heading">What clients and colleagues say.</h2>
+      </div>
+
+      <div class="testimonials-grid">
+
+        <div class="testimonials-col">
+          <div class="testimonial-card reveal">
+            <p class="testimonial-quote">Christina hat unsere Software in Sachen Benutzererfahrung, Design und intuitive Bedienung auf ein völlig neues Niveau gehoben. Was Christina auszeichnet, ist ihr einzigartiges Gespür für die Bedürfnisse der Nutzer:innen und ihre Fähigkeit, technische Anforderungen in klare, ansprechende und funktionale Designs zu übersetzen. Ihre gezielten Fragen brachten uns oft dazu, gewohnte Denkmuster zu hinterfragen und kreative neue Lösungen zu finden.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <img src="../images/LarsPotschies.jpeg" alt="Lars Potschies" />
+              </div>
+              <div class="testimonial-meta">
+                <strong>Lars Potschies</strong>
+                <span>Partner &amp; Senior Expert at AC&amp;C Company</span>
+                <span>Lars was Christina's Client</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal reveal-delay-1">
+            <p class="testimonial-quote">Working with Christina was a breeze! Together, we were able to anticipate the client's needs and develop effective strategies to get the job done. I particularly appreciated her openness and flexibility - there was no topic we couldn't discuss, and she was always determined to do her job well.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <img src="../images/MarionCuesnon.jpeg" alt="Marion Couesnon" />
+              </div>
+              <div class="testimonial-meta">
+                <strong>Marion Couesnon</strong>
+                <span>Accessibility Designer at Digital Services</span>
+                <span>Marion worked with Christina on the same team</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonials-col">
+          <div class="testimonial-card reveal reveal-delay-1">
+            <p class="testimonial-quote">Christina has a lot of experience in user experience, lean product design, and agile methodologies. I was especially impressed with her stakeholder management and her ability to present and sell ideas to C-Level stakeholders, always keeping the team focused on what truly matters.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <img src="../images/KevinDreher.jpeg" alt="Kevin Dreher" />
+              </div>
+              <div class="testimonial-meta">
+                <strong>Kevin Dreher</strong>
+                <span>Design System Lead - DBS Bank</span>
+                <span>Kevin worked with Christina on the same team</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal reveal-delay-2">
+            <p class="testimonial-quote">Christina takes all the variables into consideration when designing, paying special attention to the underlying needs of a design problem. The interaction pieces she worked on were extremely well documented and thought-through, so visual design could support interaction seamlessly.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <img src="../images/MiguelOliva.jpeg" alt="Miguel Oliva Márquez" />
+              </div>
+              <div class="testimonial-meta">
+                <strong>Miguel Oliva Márquez</strong>
+                <span>Principal Designer, Microsoft AI</span>
+                <span>Miguel worked with Christina on the same team</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonials-col">
+          <div class="testimonial-card reveal reveal-delay-2">
+            <p class="testimonial-quote">Mit Christina habe ich während meiner Zeit bei Pro7 sehr vertrauensvoll zusammengearbeitet. Christina hat trotz ihrer Rolle als Freelancerin im Team sofort Verantwortung übernommen und gerade unsere SmartTV Apps zusammen mit dem Team auf ein neues Level geführt. Partner wie Amazon haben deshalb unsere SmartTV Apps aus der gesamten Masse deutlich hervorgehoben.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <img src="../images/BjörnVogler.jpeg" alt="Björn Vogler" />
+              </div>
+              <div class="testimonial-meta">
+                <strong>Björn Vogler</strong>
+                <span>CPO @ MUUVR, former client at Pro7</span>
+                <span>Björn was Christina's Client</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal">
+            <p class="testimonial-quote">Christina is a very systematic and organised interaction designer. The ideas and concepts she generates are thorough and solid even in the early exploration stage. She always pays attention to details that make a big difference - and brings a lot of positive energy to the team.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">
+                <img src="../images/MaggieKuo.jpeg" alt="Ya-Ting Maggie Kuo" />
+              </div>
+              <div class="testimonial-meta">
+                <strong>Ya-Ting Maggie Kuo</strong>
+                <span>UX Lead at Google</span>
+                <span>Ya-Ting Maggie worked with Christina on the same team</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── About ────────────────────────────────────────────────────── -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- Photo column -->
+        <div class="about-image-wrap reveal">
+          <div class="about-image">
+            <div class="about-image-inner">
+              <img src="../images/christina-hero.jpg" alt="Christina Ebert, Senior Product Designer" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:inherit;" />
+            </div>
+          </div>
+          <div class="about-badge">
+            <div class="about-badge-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="18" height="18"><path fill-rule="evenodd" d="M9.69 18.933l.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 00.281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 15.327 17 12.514 17 9A7 7 0 103 9c0 3.514 1.698 6.327 3.354 7.585.83.799 1.654 1.38 2.274 1.765.311.193.571.337.757.433a5.741 5.741 0 00.281.14l.018.008.006.003zM10 11.25a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5z" clip-rule="evenodd"/></svg></div>
+            <div class="about-badge-text">
+              <strong data-i18n="about_badge_main">Based in Munich</strong>
+              <span data-i18n="about_badge_sub">Working globally</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text column -->
+        <div class="about-content">
+          <span class="section-label reveal" data-i18n="about_label">About me</span>
+          <h2 class="display-lg reveal reveal-delay-1" data-i18n="about_heading">Design starts before <em>Figma.</em></h2>
+          <p class="reveal reveal-delay-2" data-i18n="about_p1">
+            With 15 years in Product Design and UX, my core focus is healthcare - but I've also worked across automotive, industrial and factory environments, which has sharpened my ability to design for complex workflows and specialist users.
+          </p>
+          <p class="reveal reveal-delay-2" data-i18n="about_p2">
+            I believe great design means connecting the dots between business, brand, product and service. And it starts long before prompting in Claude Code or pushing pixels in Figma - it starts with talking to people and actually understanding them.
+          </p>
+          <p class="reveal reveal-delay-2" data-i18n="about_p3">
+            If you need a designer who gets up to speed fast and drives the process with sharpness and craft - that's where I do my best work.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── Collaboration ────────────────────────────────────────────── -->
+  <section id="collaboration" class="section">
+    <div class="container">
+
+      <div class="collab-header reveal">
+        <span class="section-label" data-i18n="collab_label">How we would work together</span>
+        <h2 class="display-lg" data-i18n="collab_heading">Open communication, visible <em>progress from day one.</em></h2>
+        <p class="collab-sub" data-i18n="collab_sub">
+          I work as a collaborative partner, not a vendor. Whether you need focused momentum on a specific challenge or a steady design presence over time - I adapt to where you are and what you actually need.
+        </p>
+      </div>
+
+      <div class="collab-cards">
+
+        <!-- Card 1 - Product Discovery Workshop -->
+        <div class="collab-card-light reveal">
+          <div>
+            <span class="collab-badge-light">Product Discovery Workshop</span>
+            <h3 data-i18n="collab_c1_heading">Know where you stand before you decide <em>where to go.</em></h3>
+            <p data-i18n="collab_c1_body">You have a product, first ideas and open questions - but no clear path forward yet. In a structured workshop we align on what you know, review what exists, and define concrete next steps together.</p>
+          </div>
+          <ul class="collab-list">
+            <li class="collab-list-item">
+              <i data-lucide="check" width="16" height="16" style="color:var(--purple)"></i>
+              <span data-i18n="collab_c1_1">Align on business goals and define your north star</span>
+            </li>
+            <li class="collab-list-item">
+              <i data-lucide="check" width="16" height="16" style="color:var(--purple)"></i>
+              <span data-i18n="collab_c1_2">Review existing product experience and identify pain points</span>
+            </li>
+            <li class="collab-list-item">
+              <i data-lucide="check" width="16" height="16" style="color:var(--purple)"></i>
+              <span data-i18n="collab_c1_3">Structure and prioritise ideas - quick wins vs. strategic features</span>
+            </li>
+            <li class="collab-list-item">
+              <i data-lucide="check" width="16" height="16" style="color:var(--purple)"></i>
+              <span data-i18n="collab_c1_4">An outside perspective that sees what internal teams often miss</span>
+            </li>
+            <li class="collab-list-item">
+              <i data-lucide="check" width="16" height="16" style="color:var(--purple)"></i>
+              <span data-i18n="collab_c1_5">Concrete next steps as output - backlog or roadmap-ready</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card 2 - Design Partner -->
+        <div class="collab-card-dark reveal reveal-delay-1">
+          <div>
+            <span class="collab-badge-dark">Design Partner</span>
+            <h3 data-i18n="collab_c2_heading"><em>Embedded,</em> not outsourced.</h3>
+            <p data-i18n="collab_c2_body">A longer engagement where I work as part of your team - driving design across discovery, product and brand. I bring senior design leadership without the overhead of a permanent hire.</p>
+          </div>
+          <ul class="collab-list-dark">
+            <li class="collab-list-dark-item">
+              <i data-lucide="check" width="16" height="16"></i>
+              <span data-i18n="collab_c2_1">Senior design leadership scaled to your context</span>
+            </li>
+            <li class="collab-list-dark-item">
+              <i data-lucide="check" width="16" height="16"></i>
+              <span data-i18n="collab_c2_2">Trusted sparring partner for product decisions</span>
+            </li>
+            <li class="collab-list-dark-item">
+              <i data-lucide="check" width="16" height="16"></i>
+              <span data-i18n="collab_c2_3">Fluent in complex stakeholder environments</span>
+            </li>
+            <li class="collab-list-dark-item">
+              <i data-lucide="check" width="16" height="16"></i>
+              <span data-i18n="collab_c2_4">Fast to context, faster to value</span>
+            </li>
+            <li class="collab-list-dark-item">
+              <i data-lucide="check" width="16" height="16"></i>
+              <span data-i18n="collab_c2_5">I integrate into your team fast - no lengthy onboarding needed</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── Contact ──────────────────────────────────────────────────── -->
+  <section id="contact">
+    <div class="container contact-inner">
+      <span class="section-label reveal" data-i18n="contact_label">Let's work together</span>
+      <h2 class="contact-heading reveal reveal-delay-1" data-i18n="contact_heading">
+        Want to talk about a project or <em style="color:var(--purple)">topic?</em>
+      </h2>
+      <p class="reveal reveal-delay-2" data-i18n="contact_sub">
+        I'm currently available for freelance projects and long-term collaborations. Let's talk about your challenges.
+      </p>
+      <div class="contact-actions reveal reveal-delay-3">
+        <button type="button" class="btn btn-purple" id="openEmailForm">
+          <span data-i18n="contact_btn_primary">Send me a message</span>
+          <i data-lucide="arrow-right" width="16" height="16"></i>
+        </button>
+        <a href="https://calendly.com/mail-christinaebert" target="_blank" rel="noopener" class="btn btn-ghost" data-i18n="contact_btn_secondary">Book intro call</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ─── Footer ───────────────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-links">
+          <span class="footer-link">© 2026 Christina Ebert</span>
+          <a href="../impressum.html" class="footer-link" data-i18n="footer_legal">Legal Notice</a>
+          <a href="../datenschutz.html" class="footer-link" data-i18n="footer_privacy">Privacy Policy</a>
+          <span class="footer-link" data-i18n="footer_made">Made with 💜 and <a href="https://claude.ai/code" class="footer-link footer-link-underline">Claude Code</a></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ─── Contact Form Modal ────────────────────────────────────────── -->
+  <div id="contactFormModal" class="cmodal-overlay" role="dialog" aria-modal="true" aria-labelledby="cfmTitle">
+    <div class="cmodal-panel cfm-panel">
+      <button class="cmodal-close" id="cfmClose" aria-label="Close">
+        <i data-lucide="x" width="16" height="16"></i>
+      </button>
+      <div class="cfm-layout">
+
+        <!-- Left: context -->
+        <div class="cfm-left">
+          <div class="cfm-deco-fill" aria-hidden="true"></div>
+          <div class="cfm-deco-mint" aria-hidden="true"></div>
+          <div class="cfm-left-badge">
+            <span class="cfm-left-badge-dot"></span>
+            <span data-i18n="modal_badge">Available for projects · 2026</span>
+          </div>
+          <h2 class="cfm-heading" id="cfmTitle" data-i18n="modal_heading">Send me a <em>message.</em></h2>
+          <p class="cfm-intro" data-i18n="modal_intro">No pitch, no pressure — just a first hello. Tell me what's on your mind.</p>
+          <ul class="cfm-trust">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="modal_trust_1">I usually reply within 24 hours</span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="modal_trust_2">Open to freelance projects &amp; collaborations</span>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-i18n="modal_trust_3">No commitment needed for a first conversation</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: form -->
+        <div class="cfm-right">
+          <form id="cfmForm" novalidate>
+            <div class="cfm-fields">
+              <div class="cfm-row">
+                <div class="cfm-field">
+                  <label for="cfm-name" data-i18n="modal_label_name">Name</label>
+                  <input type="text" id="cfm-name" name="name" required placeholder="Your name" data-i18n-ph="modal_ph_name" />
+                </div>
+                <div class="cfm-field">
+                  <label for="cfm-email" data-i18n="modal_label_email">Email</label>
+                  <input type="email" id="cfm-email" name="email" required placeholder="your@email.com" />
+                </div>
+              </div>
+              <div class="cfm-field">
+                <label for="cfm-topic" data-i18n="modal_label_topic">What's your topic — or the problem you're working on?</label>
+                <textarea id="cfm-topic" name="topic" placeholder="Tell me what you're working on…" data-i18n-ph="modal_ph_topic"></textarea>
+              </div>
+              <div class="cfm-field">
+                <label for="cfm-goal" data-i18n="modal_label_goal">What are you hoping to get out of our conversation?</label>
+                <textarea id="cfm-goal" name="goal" placeholder="What would a great outcome look like?" data-i18n-ph="modal_ph_goal"></textarea>
+              </div>
+              <div class="cfm-field">
+                <label for="cfm-extra" data-i18n="modal_label_extra">Is there anything I should know beforehand?</label>
+                <textarea id="cfm-extra" name="extra" placeholder="Timeline, constraints, context — anything helps." data-i18n-ph="modal_ph_extra"></textarea>
+              </div>
+              <label class="cfm-check" for="cfm-consent">
+                <input type="checkbox" id="cfm-consent" name="consent" />
+                <span class="cfm-check-box"></span>
+                <span class="cfm-check-text" data-i18n="modal_consent">I agree that my personal data will be processed in accordance with the <a href="../datenschutz.html" target="_blank">Privacy Policy</a>.</span>
+              </label>
+              <div class="cfm-footer">
+                <button type="submit" class="cmodal-btn-primary">
+                  <span data-i18n="modal_submit">Send message</span>
+                  <i data-lucide="send" width="14" height="14"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+          <div class="cfm-success" id="cfmSuccess">
+            <div class="cfm-success-icon">
+              <i data-lucide="check" width="22" height="22"></i>
+            </div>
+            <p data-i18n="modal_success">Your message has been sent. I'm super excited to meet and talk with you soon. Expect a reply within the next 24 hrs.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Gallery custom cursor ──────────────────────────────────────── -->
+  <div id="galleryCursor" aria-hidden="true">
+    <svg id="galleryCursorLeft" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+    <svg id="galleryCursorRight" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M5 12H19"/><polyline points="12 5 19 12 12 19"/></svg>
+  </div>
+
+  <!-- ─── Back to top ──────────────────────────────────────────────── -->
+  <button id="back-to-top" aria-label="Back to top">
+    <i data-lucide="arrow-up" width="18" height="18"></i>
+  </button>
+
+
+  <!-- ─── Scripts ──────────────────────────────────────────────────── -->
+  <script>
+  (function () {
+    'use strict';
+
+    /* ── 1. Nav: scroll state ─────────────────────────────────────── */
+    const navbar = document.getElementById('navbar');
+    function updateNav() {
+      if (window.scrollY > 40) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    /* ── 2. Mobile nav toggle ─────────────────────────────────────── */
+    const navToggle = document.getElementById('navToggle');
+    const navMobile = document.getElementById('navMobile');
+    navToggle.addEventListener('click', function () {
+      const isOpen = navMobile.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    // Close on link click
+    navMobile.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navMobile.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* ── 3. Scrollspy ─────────────────────────────────────────────── */
+    const sections = document.querySelectorAll('section[id]');
+    const navLinksAll = document.querySelectorAll('#navLinks a, #navMobile a');
+    function setActiveLink() {
+      let current = '';
+      sections.forEach(function (sec) {
+        const top = sec.offsetTop - 100;
+        if (window.scrollY >= top) {
+          current = sec.getAttribute('id');
+        }
+      });
+      navLinksAll.forEach(function (link) {
+        const href = link.getAttribute('href');
+        if (href && href === '#' + current) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+    window.addEventListener('scroll', setActiveLink, { passive: true });
+    setActiveLink();
+
+    /* ── 4. Scroll reveal ─────────────────────────────────────────── */
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach(function (el) { observer.observe(el); });
+    } else {
+      // Fallback for no IntersectionObserver
+      revealEls.forEach(function (el) { el.classList.add('visible'); });
+    }
+
+    /* ── 5. Work strip: drag + arrows + auto-advance ──────────────── */
+    (function () {
+      const wrap = document.getElementById('workStrip');
+      if (!wrap) return;
+      const dotsContainer = document.getElementById('workDots');
+
+      // Build dots
+      const cards = Array.from(wrap.querySelectorAll('.work-card'));
+      cards.forEach(function (_, i) {
+        const dot = document.createElement('button');
+        dot.className = 'work-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to project ' + (i + 1));
+        dot.addEventListener('click', function () {
+          wrap.scrollTo({ left: i * cardWidth(), behavior: 'smooth' });
+          resetAuto();
+        });
+        dotsContainer.appendChild(dot);
+      });
+
+      function updateDots() {
+        const index = Math.round(wrap.scrollLeft / cardWidth());
+        dotsContainer.querySelectorAll('.work-dot').forEach(function (dot, i) {
+          dot.classList.toggle('active', i === index);
+        });
+      }
+
+      function cardWidth() {
+        const slide = wrap.querySelector('.work-slide');
+        return slide ? slide.offsetWidth + 20 : 820;
+      }
+
+      // Drag to scroll
+      let isDown = false, startX, scrollLeft, hasDragged = false;
+      wrap.addEventListener('mousedown', function (e) {
+        isDown = true;
+        hasDragged = false;
+        startX = e.pageX - wrap.offsetLeft;
+        scrollLeft = wrap.scrollLeft;
+      });
+      wrap.addEventListener('mouseleave', function () { isDown = false; });
+      wrap.addEventListener('mouseup', function () { isDown = false; });
+      wrap.addEventListener('mousemove', function (e) {
+        if (!isDown) return;
+        const x = e.pageX - wrap.offsetLeft;
+        if (Math.abs(x - startX) > 5) {
+          hasDragged = true;
+          e.preventDefault();
+          wrap.scrollLeft = scrollLeft - (x - startX) * 1.5;
+        }
+      });
+
+      wrap.addEventListener('scroll', updateDots, { passive: true });
+
+      // Auto-advance
+      let autoTimer;
+      function advance() {
+        const atEnd = wrap.scrollLeft + wrap.clientWidth >= wrap.scrollWidth - 2;
+        if (atEnd) {
+          wrap.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          wrap.scrollBy({ left: cardWidth(), behavior: 'smooth' });
+        }
+      }
+      function startAuto() { autoTimer = setInterval(advance, 3500); }
+      function resetAuto() {
+        clearInterval(autoTimer);
+        autoTimer = setTimeout(startAuto, 5000);
+      }
+
+      wrap.addEventListener('mouseenter', function () { clearInterval(autoTimer); });
+      wrap.addEventListener('mouseleave', function () { resetAuto(); });
+      wrap.addEventListener('touchstart', function () { clearInterval(autoTimer); }, { passive: true });
+      wrap.addEventListener('touchend', function () { resetAuto(); }, { passive: true });
+
+      // Custom cursor: left / right arrow on card hover
+      const cursor = document.getElementById('galleryCursor');
+      const cursorLeft  = document.getElementById('galleryCursorLeft');
+      const cursorRight = document.getElementById('galleryCursorRight');
+
+      let isRight = false;
+
+      wrap.addEventListener('mousemove', function (e) {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top  = e.clientY + 'px';
+
+        const card  = e.target.closest('.work-slide');
+        const arrow = e.target.closest('.work-card-arrow');
+        if (card && !arrow) {
+          const newIsRight = e.clientX > window.innerWidth / 2;
+          if (newIsRight !== isRight) {
+            isRight = newIsRight;
+            cursorLeft.style.display  = isRight ? 'none' : '';
+            cursorRight.style.display = isRight ? '' : 'none';
+          }
+          cursor.classList.add('visible');
+        } else {
+          cursor.classList.remove('visible');
+        }
+      });
+
+      wrap.addEventListener('mouseleave', function () {
+        cursor.classList.remove('visible');
+      });
+
+      wrap.addEventListener('click', function (e) {
+        if (e.target.closest('.work-card-arrow')) return; // let the link navigate
+        if (hasDragged) return;
+        const card = e.target.closest('.work-slide');
+        if (!card) return;
+        wrap.scrollBy({ left: isRight ? cardWidth() : -cardWidth(), behavior: 'smooth' });
+        resetAuto();
+      });
+
+      // Start only when visible; reset to first card when scrolled away
+      let autoStarted = false;
+      const stripObserver = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          if (!autoStarted) {
+            autoStarted = true;
+            autoTimer = setTimeout(startAuto, 2000);
+          }
+        } else {
+          clearInterval(autoTimer);
+          clearTimeout(autoTimer);
+          autoStarted = false;
+          wrap.scrollTo({ left: 0, behavior: 'smooth' });
+        }
+      }, { threshold: 0.25 });
+      stripObserver.observe(wrap);
+    })();
+
+    /* ── 6. Back to top ───────────────────────────────────────────── */
+    const btt = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 400) {
+        btt.classList.add('visible');
+      } else {
+        btt.classList.remove('visible');
+      }
+    }, { passive: true });
+    btt.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /* ── 7. Contact form modal ───────────────────────────────────── */
+    const cfmModal   = document.getElementById('contactFormModal');
+    const cfmClose   = document.getElementById('cfmClose');
+    const cfmForm    = document.getElementById('cfmForm');
+    const cfmSuccess = document.getElementById('cfmSuccess');
+
+    function openFormModal() {
+      cfmModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      cfmClose.focus();
+    }
+    function closeFormModal() {
+      cfmModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('openEmailForm').addEventListener('click', openFormModal);
+
+    // All [data-contact-modal] links (nav, hero) open the form modal
+    document.querySelectorAll('[data-contact-modal]').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (navMobile.classList.contains('open')) {
+          navMobile.classList.remove('open');
+          navToggle.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+        openFormModal();
+      });
+    });
+
+    cfmClose.addEventListener('click', closeFormModal);
+    cfmModal.addEventListener('click', function (e) {
+      if (e.target === cfmModal) closeFormModal();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && cfmModal.classList.contains('open')) closeFormModal();
+    });
+
+    cfmForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name  = document.getElementById('cfm-name').value.trim();
+      var email = document.getElementById('cfm-email').value.trim();
+      var topic = document.getElementById('cfm-topic').value.trim();
+      var goal  = document.getElementById('cfm-goal').value.trim();
+      var extra = document.getElementById('cfm-extra').value.trim();
+
+      var consent  = document.getElementById('cfm-consent');
+      var checkBox = consent.parentElement.querySelector('.cfm-check-box');
+      if (!name)  { document.getElementById('cfm-name').focus();  return; }
+      if (!email) { document.getElementById('cfm-email').focus(); return; }
+      if (!consent.checked) {
+        checkBox.classList.add('error');
+        consent.addEventListener('change', function () { checkBox.classList.remove('error'); }, { once: true });
+        return;
+      }
+
+      var body = 'Name: ' + name + '\nEmail: ' + email;
+      if (topic) body += "\n\nWhat's the topic or problem?\n" + topic;
+      if (goal)  body += '\n\nWhat are you hoping to get out of our conversation?\n' + goal;
+      if (extra) body += '\n\nAnything I should know beforehand?\n' + extra;
+
+      window.location.href = 'mailto:mail@christinaebert.com'
+        + '?subject=' + encodeURIComponent('Message from ' + name)
+        + '&body='    + encodeURIComponent(body);
+
+      setTimeout(function () {
+        cfmForm.style.display = 'none';
+        cfmSuccess.style.display = 'block';
+        document.querySelector('.cfm-panel').classList.add('sent');
+        lucide.createIcons();
+      }, 400);
+    });
+
+  })();
+
+  lucide.createIcons();
+
+  /* ── 8. Language switch removed ── */
+  /*
+      de: {
+        nav_work: 'Work',
+        nav_process: 'Process',
+        nav_testimonials: 'Testimonials',
+        nav_about: 'About',
+        nav_collab: 'Work with me',
+        nav_cta: "Let's chat",
+        hero_badge: 'Verfügbar für neue Projekte · 2026',
+        hero_heading: 'Designing<br/><em>experiences</em><br/>that matter.',
+        hero_sub: 'Hallo, ich bin Christina. Ich helfe Product Teams, großartige digitale Experiences zu erschaffen – durch die Verbindung von Design, Strategie und Business. Bevor der erste Prompt eingegeben oder der erste Pixel verschoben wird.',
+        hero_cta_primary: 'Projekte',
+        hero_cta_secondary: 'Lass uns reden',
+        work_label: 'Ausgewählte Projekte',
+        work_heading: 'Einblicke in meine <em>Arbeit.</em>',
+        work_muuvr_title: 'MUUVR — Ein Sports-Loyalty-Programm',
+        work_muuvr_detail: 'Die gesamte Product Journey analysiert, um Experience-Lücken zu identifizieren. Dann das In-App-Shopping-Erlebnis geleitet – mit einer nahtlosen Übergabe zwischen der MUUVR-App und einem Drittanbieter für Kauf, Versand und Rücksendung.',
+        work_healthineers_detail: 'UX-Design-Lead für die Neurologie- und Notfallmodule von syngo.via, der globalen Bildgebungs- und Diagnoseplattform. Neue Features zur Verbesserung von CT-Nachbearbeitungs-Workflows für Radiologen in zeitkritischen Kontexten – und gleichzeitige Erkundung von KI-Möglichkeiten.',
+        work_mozak_title: 'Mozak — SaaS für Pharmafertigung',
+        work_mozak_detail: 'Eingestiegen als UX noch nicht existierte und allein von Entwicklern gehandhabt wurde. Designprinzipien eingeführt, ein designgetriebenes Mindset von Grund auf aufgebaut und ein vollständiges Redesign geliefert. Ergebnis: Nutzerzufriedenheit von 5,0/5 für die Oberfläche und 4,8/5 für die Performance.',
+        work_hm_title: 'Hochschule München — KI-Chatbot-Design',
+        work_hm_detail: 'Studierende durch den gesamten Produktdesign-Prozess für einen KI-Chatbot geführt – von der Recherche und dem Konzept bis zum Prototyp. KI-gestützte Design-Tools bewertet und kritisches Denken über die Rolle von KI im Designprozess gefördert.',
+        work_zeiss_title: 'Zeiss — Remote-Chirurgie-Anwendung',
+        work_zeiss_detail: 'Product-Discovery-Projekt zur Entwicklung einer Fernsteuerungsfunktion für das ZEISS Intrabeam 600 intraoperative Bestrahlungssystem geleitet – damit Onkologen aus der Ferne weltweit an Tumorbehandlungen teilnehmen können.',
+        process_label: 'Mein Prozess',
+        process_heading: 'Ein Prozess rund um <em style="color:var(--purple)">dein Problem.</em>',
+        process_body: 'Jedes Projekt ist anders. Aber die Denkweise dahinter nicht – ich beginne mit Verstehen, bevor ich designe. Design ist ein Teamsport, und ich spiele am besten, wenn ich eingebettet bin, nicht outgesourct.',
+        process_1_title: 'Discover &amp; Research',
+        process_1_tagline: 'Erst zuhören, dann skizzieren.',
+        process_1_kw: 'Nutzer- &amp; Stakeholder-Interviews · Vision Mapping · Produkt-Wertversprechen · Wettbewerbsanalyse',
+        process_2_title: 'Definieren &amp; Rahmen',
+        process_2_tagline: 'Klarheit vor Kreativität.',
+        process_2_kw: 'User Personas · Empathy Mapping · Problemformulierungen · User Journey Mapping · Jobs to be Done',
+        process_3_title: 'Ideen &amp; Prototypen',
+        process_3_tagline: 'Nicht theoretisch. Greifbar.',
+        process_3_kw: 'Design Sprints · Wireframing · Interaktive Prototypen · Service Blueprinting · Co-Creation-Workshops',
+        process_4_title: 'Testen &amp; Iterieren',
+        process_4_tagline: 'Annahmen sind teuer. Testen nicht.',
+        process_4_kw: 'Usability-Tests · UX- &amp; Barrierefreiheits-Audit · A/B-Experimente · Expertenreviews · Moderierte &amp; unmoderierte Studien',
+        process_5_title: 'Deliver &amp; Handoff',
+        process_5_tagline: 'Design, das funktioniert und nicht nur gut aussieht.',
+        process_5_kw: 'Pixelgenaue Spezifikationen · Design System · Developer Handoff · Annotationen &amp; Dokumentation · QA-Support',
+        test_label: 'Referenzen',
+        test_heading: 'Was Kunden und Kolleg:innen sagen.',
+        about_label: 'Über mich',
+        about_heading: 'Design beginnt vor <em>Figma.</em>',
+        about_badge_main: 'Based in Munich',
+        about_badge_sub: 'Working globally',
+        about_p1: 'Mit 15 Jahren in Product Design und UX liegt mein Kernfokus im Healthcare-Bereich – ich habe aber auch in der Automobilindustrie, im Industriebereich und in der Fabrikumgebung gearbeitet, was meine Fähigkeit geschärft hat, für komplexe Workflows und Fachnutzer zu designen.',
+        about_p2: 'Ich glaube, dass großartiges Design bedeutet, die Verbindungen zwischen Business, Marke, Produkt und Service herzustellen. Und es beginnt lange bevor man Prompts in Claude Code eingibt oder Pixel in Figma verschiebt – es beginnt damit, mit Menschen zu reden und sie wirklich zu verstehen.',
+        about_p3: 'Wenn du einen Designer brauchst, der schnell auf Touren kommt und den Prozess mit Schärfe und Handwerk vorantreibt – da leiste ich meine beste Arbeit.',
+        collab_label: 'So würden wir zusammenarbeiten',
+        collab_heading: 'Offene Kommunikation, sichtbarer <em>Fortschritt ab Tag eins.</em>',
+        collab_sub: 'Ich arbeite als kollaborativer Partner, nicht als Auftragnehmer. Ob du fokussierten Schwung bei einer konkreten Herausforderung brauchst oder eine stetige Design-Präsenz über Zeit – ich passe mich an, wo du stehst und was du wirklich brauchst.',
+        collab_c1_heading: 'Wisse, wo du stehst, bevor du entscheidest, <em>wohin du gehst.</em>',
+        collab_c1_body: 'Du hast ein Produkt, erste Ideen und offene Fragen – aber noch keinen klaren Weg nach vorne. In einem strukturierten Workshop gleichen wir ab, was du weißt, prüfen, was existiert, und definieren gemeinsam konkrete nächste Schritte.',
+        collab_c1_1: 'Geschäftsziele abstimmen und Leitstern definieren',
+        collab_c1_2: 'Bestehende Produkterfahrung prüfen und Schwachstellen identifizieren',
+        collab_c1_3: 'Ideen strukturieren und priorisieren – Quick Wins vs. strategische Features',
+        collab_c1_4: 'Eine externe Perspektive, die sieht, was interne Teams oft übersehen',
+        collab_c1_5: 'Konkrete nächste Schritte als Output – Backlog- oder Roadmap-ready',
+        collab_c2_heading: '<em>Eingebettet,</em> nicht outgesourct.',
+        collab_c2_body: 'Ein längeres Engagement, bei dem ich als Teil deines Teams arbeite – Design in Discovery, Produkt und Marke vorantreibend. Ich bringe Senior-Design-Leadership ohne den Overhead einer Festanstellung.',
+        collab_c2_1: 'Senior-Design-Leadership, skaliert auf deinen Kontext',
+        collab_c2_2: 'Vertrauenswürdiger Sparringspartner für Produktentscheidungen',
+        collab_c2_3: 'Versiert in komplexen Stakeholder-Umgebungen',
+        collab_c2_4: 'Schnell im Kontext, noch schneller im Mehrwert',
+        collab_c2_5: 'Ich integriere mich schnell ins Team – kein langwieriges Onboarding nötig',
+        contact_label: 'Lass uns zusammenarbeiten',
+        contact_heading: 'Möchtest du über ein Projekt oder <em style="color:var(--purple)">Thema sprechen?</em>',
+        contact_sub: 'Ich bin derzeit für Freelance-Projekte und langfristige Kooperationen verfügbar. Lass uns über deine Herausforderungen sprechen.',
+        contact_btn_primary: 'Schreib mir',
+        contact_btn_secondary: 'Intro-Call buchen',
+        footer_legal: 'Impressum',
+        footer_privacy: 'Datenschutz',
+        footer_made: 'Made with 💜 and <a href="https://claude.ai/code" class="footer-link footer-link-underline">Claude Code</a>',
+        modal_badge: 'Verfügbar für Projekte · 2026',
+        modal_heading: 'Schreib mir eine <em>Nachricht.</em>',
+        modal_intro: 'Kein Pitch, kein Druck – einfach ein erstes Hallo. Erzähl mir, was du auf dem Herzen hast.',
+        modal_trust_1: 'Ich antworte in der Regel innerhalb von 24 Stunden',
+        modal_trust_2: 'Offen für Freelance-Projekte &amp; Kooperationen',
+        modal_trust_3: 'Keine Verpflichtung für ein erstes Gespräch',
+        modal_label_name: 'Name',
+        modal_label_email: 'E-Mail',
+        modal_ph_name: 'Dein Name',
+        modal_label_topic: 'Was ist dein Thema – oder das Problem, woran du arbeitest?',
+        modal_ph_topic: 'Erzähl mir, woran du arbeitest…',
+        modal_label_goal: 'Was erhoffst du dir von unserem Gespräch?',
+        modal_ph_goal: 'Wie würde ein tolles Ergebnis aussehen?',
+        modal_label_extra: 'Gibt es etwas, das ich vorher wissen sollte?',
+        modal_ph_extra: 'Zeitplan, Einschränkungen, Kontext – alles hilft.',
+        modal_consent: 'Ich stimme zu, dass meine personenbezogenen Daten gemäß der <a href="../datenschutz.html" target="_blank">Datenschutzerklärung</a> verarbeitet werden.',
+        modal_submit: 'Nachricht senden',
+        modal_success: 'Deine Nachricht wurde gesendet. Ich freue mich sehr, dich bald kennenzulernen und mit dir zu sprechen. Erwarte eine Antwort innerhalb der nächsten 24 Stunden.'
+      },
+      en: {
+        nav_work: 'Work',
+        nav_process: 'Process',
+        nav_testimonials: 'Testimonials',
+        nav_about: 'About',
+        nav_collab: 'Work with me',
+        nav_cta: "Let's chat",
+        hero_badge: 'Available for new projects · 2026',
+        hero_heading: 'Designing<br/><em>experiences</em><br/>that matter.',
+        hero_sub: "Hi, I'm Christina. I help product teams create great digital experiences – by connecting design, strategy and business. Before the first prompt. Before the first pixel.",
+        hero_cta_primary: 'View my work',
+        hero_cta_secondary: "Let's chat",
+        work_label: 'A few recent projects',
+        work_heading: 'Selected <em>projects.</em>',
+        work_muuvr_title: 'MUUVR — A sports loyalty program',
+        work_muuvr_detail: 'Analysed the full product journey to identify experience gaps, then led design of the in-app shopping experience - creating a seamless handoff between the MUUVR app and a third-party purchase, shipping and returns flow.',
+        work_healthineers_detail: 'Leading UX design for the neurology and emergency modules of syngo.via, the global imaging and diagnostic platform. Designing new features to improve CT post-processing workflows for radiologists in time-critical contexts while exploring AI opportunities.',
+        work_mozak_title: 'Mozak — SaaS for pharma manufacturing',
+        work_mozak_detail: 'Joined when UX was nonexistent and handled solely by developers. Introduced design principles, built a design-driven mindset from scratch, and delivered a full redesign. Resulted in user satisfaction scores of 5.0/5 for interface and 4.8/5 for performance.',
+        work_hm_title: 'Hochschule München — AI Chatbot Design',
+        work_hm_detail: 'Guided students through the end-to-end product design process for an AI chatbot - from research and concept through to prototype. Evaluated AI-assisted design tools and encouraged critical thinking around AI\'s role in the design process.',
+        work_zeiss_title: 'Zeiss — Remote Surgery Application',
+        work_zeiss_detail: 'Led a product discovery project to design a remote control feature for the ZEISS Intrabeam 600 intraoperative radiotherapy system - enabling remote oncologists to participate in tumour treatment surgery from anywhere in the world.',
+        process_label: 'How I work',
+        process_heading: 'A process built around <em style="color:var(--purple)">your</em> problem, not a template.',
+        process_body: "Every engagement is different. But the thinking behind it isn't — I start with understanding before I start designing. Design is a team sport, and I play best when I'm embedded, not outsourced.",
+        process_1_title: 'Discover &amp; Research',
+        process_1_tagline: 'I listen before I sketch.',
+        process_1_kw: 'User &amp; stakeholder interviews · Vision mapping · Product value proposition · Competitive analysis',
+        process_2_title: 'Define &amp; Frame',
+        process_2_tagline: 'Clarity before creativity.',
+        process_2_kw: 'User personas · Empathy mapping · Problem statements · User journey mapping · Jobs to be done',
+        process_3_title: 'Ideate &amp; Prototype',
+        process_3_tagline: 'Ideas are cheap. Tangible beats theoretical.',
+        process_3_kw: 'Design sprints · Wireframing · Interactive prototypes · Service blueprinting · Co-creation workshops',
+        process_4_title: 'Test &amp; Iterate',
+        process_4_tagline: 'Assumptions are expensive. Testing isn\'t.',
+        process_4_kw: 'Usability testing · UX &amp; accessibility audit · A/B experiments · Expert review · Moderated &amp; unmoderated studies',
+        process_5_title: 'Deliver &amp; Handoff',
+        process_5_tagline: 'Designed to be built, not just admired.',
+        process_5_kw: 'Pixel-perfect specs · Design system · Developer handoff · Annotation &amp; documentation · QA support',
+        test_label: 'Kind words',
+        test_heading: 'What clients and colleagues say.',
+        about_label: 'About me',
+        about_heading: 'Design starts before <em>Figma.</em>',
+        about_badge_main: 'Based in Munich',
+        about_badge_sub: 'Working globally',
+        about_p1: "With 15 years in Product Design and UX, my core focus is healthcare - but I've also worked across automotive, industrial and factory environments, which has sharpened my ability to design for complex workflows and specialist users.",
+        about_p2: "I believe great design means connecting the dots between business, brand, product and service. And it starts long before prompting in Claude Code or pushing pixels in Figma - it starts with talking to people and actually understanding them.",
+        about_p3: "If you need a designer who gets up to speed fast and drives the process with sharpness and craft - that's where I do my best work.",
+        collab_label: 'How we would work together',
+        collab_heading: 'Open communication, visible <em>progress from day one.</em>',
+        collab_sub: "I work as a collaborative partner, not a vendor. Whether you need focused momentum on a specific challenge or a steady design presence over time - I adapt to where you are and what you actually need.",
+        collab_c1_heading: 'Know where you stand before you decide <em>where to go.</em>',
+        collab_c1_body: "You have a product, first ideas and open questions - but no clear path forward yet. In a structured workshop we align on what you know, review what exists, and define concrete next steps together.",
+        collab_c1_1: 'Align on business goals and define your north star',
+        collab_c1_2: 'Review existing product experience and identify pain points',
+        collab_c1_3: 'Structure and prioritise ideas - quick wins vs. strategic features',
+        collab_c1_4: 'An outside perspective that sees what internal teams often miss',
+        collab_c1_5: 'Concrete next steps as output - backlog or roadmap-ready',
+        collab_c2_heading: '<em>Embedded,</em> not outsourced.',
+        collab_c2_body: "A longer engagement where I work as part of your team - driving design across discovery, product and brand. I bring senior design leadership without the overhead of a permanent hire.",
+        collab_c2_1: 'Senior design leadership scaled to your context',
+        collab_c2_2: 'Trusted sparring partner for product decisions',
+        collab_c2_3: 'Fluent in complex stakeholder environments',
+        collab_c2_4: 'Fast to context, faster to value',
+        collab_c2_5: 'I integrate into your team fast - no lengthy onboarding needed',
+        contact_label: "Let's work together",
+        contact_heading: 'Want to talk about a project or <em style="color:var(--purple)">topic?</em>',
+        contact_sub: "I'm currently available for freelance projects and long-term collaborations. Let's talk about your challenges.",
+        contact_btn_primary: 'Send me a message',
+        contact_btn_secondary: 'Book intro call',
+        footer_legal: 'Legal Notice',
+        footer_privacy: 'Privacy Policy',
+        footer_made: 'Made with 💜 and <a href="https://claude.ai/code" class="footer-link footer-link-underline">Claude Code</a>',
+        modal_badge: 'Available for projects · 2026',
+        modal_heading: 'Send me a <em>message.</em>',
+        modal_intro: 'No pitch, no pressure — just a first hello. Tell me what\'s on your mind.',
+        modal_trust_1: 'I usually reply within 24 hours',
+        modal_trust_2: 'Open to freelance projects &amp; collaborations',
+        modal_trust_3: 'No commitment needed for a first conversation',
+        modal_label_name: 'Name',
+        modal_label_email: 'Email',
+        modal_ph_name: 'Your name',
+        modal_label_topic: "What's your topic — or the problem you're working on?",
+        modal_ph_topic: 'Tell me what you\'re working on…',
+        modal_label_goal: 'What are you hoping to get out of our conversation?',
+        modal_ph_goal: 'What would a great outcome look like?',
+        modal_label_extra: 'Is there anything I should know beforehand?',
+        modal_ph_extra: 'Timeline, constraints, context — anything helps.',
+        modal_consent: 'I agree that my personal data will be processed in accordance with the <a href="../datenschutz.html" target="_blank">Privacy Policy</a>.',
+        modal_submit: 'Send message',
+        modal_success: "Your message has been sent. I'm super excited to meet and talk with you soon. Expect a reply within the next 24 hrs."
+      }
+    };
+
+    var currentLang = 'de';
+
+    function applyLang(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      var t = translations[lang];
+
+      // Swap innerHTML for all [data-i18n] elements
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) { el.innerHTML = t[key]; }
+      });
+
+      // Swap placeholders for [data-i18n-ph] elements
+      document.querySelectorAll('[data-i18n-ph]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n-ph');
+        if (t[key] !== undefined) { el.placeholder = t[key]; }
+      });
+
+      // Update page title and meta description
+      if (lang === 'de') {
+        document.title = 'Christina Ebert – Freelance Senior Product Designerin, München';
+        var metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'Freelance Senior Product Designerin & Design Lead in München. 15 Jahre Erfahrung in Healthcare, MedTech und komplexen Enterprise-Produkten. Verfügbar für Projekte in ganz Europa.');
+      } else {
+        document.title = 'Christina Ebert - Freelance Senior Product Designer, Munich';
+        var metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'Freelance Senior Product Designer & Design Lead in Munich. 15 years of experience in healthcare, MedTech and complex enterprise products. Available for embedded engagements across Europe.');
+      }
+
+      // Update active state on all lang buttons
+      document.querySelectorAll('.lang-btn').forEach(function (btn) {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+
+      // Re-render lucide icons (innerHTML swap may have removed them)
+      if (window.lucide) { lucide.createIcons(); }
+    }
+
+    // Wire up all lang buttons (desktop + mobile)
+    document.querySelectorAll('.lang-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var lang = btn.getAttribute('data-lang');
+        if (lang !== currentLang) {
+          localStorage.setItem('ce_lang', lang);
+          window.location.reload();
+        }
+      });
+    });
+
+    // Apply saved language preference on load
+    var savedLang = localStorage.getItem('ce_lang');
+    if (savedLang && translations[savedLang]) { applyLang(savedLang); }
+
+  */
+  </script>
+
+</body>
+</html>
