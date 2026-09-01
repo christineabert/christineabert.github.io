@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hochschule München, Case Study · Christina Ebert</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset ─────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ─── Tokens ─────────────────────────────────────────────────────── */
+    :root {
+      --purple:      #7c6fff;
+      --purple-dark: #4a3fff;
+      --purple-pale: #f0eeff;
+      --mint:        #2BCB9B;
+      --mint-pale:   #e4f8f1;
+      --ink:         #0d0c1d;
+      --ink-mid:     #3d3b52;
+      --ink-light:   #8e8ba8;
+      --cream:       #faf9f7;
+      --cream-dark:  #f2efe8;
+      --white:       #ffffff;
+      --serif:       'Playfair Display', Georgia, serif;
+      --sans:        'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 6.5rem; }
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    img { display: block; max-width: 100%; }
+    a   { color: inherit; text-decoration: none; }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       PASSWORD GATE
+       ═══════════════════════════════════════════════════════════════════ */
+    #pw-gate {
+      position: fixed; inset: 0; z-index: 500;
+      background: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+      padding: 2rem;
+      transition: opacity 0.5s ease;
+    }
+    #pw-gate.unlocking { opacity: 0; pointer-events: none; }
+    #pw-gate.hidden    { display: none; }
+    .pw-deco-1 { position: absolute; right: -6%; top: -15%; width: 40%; aspect-ratio: 1; border-radius: 50%; background: var(--purple-pale); pointer-events: none; }
+    .pw-deco-2 { position: absolute; left: -4%; bottom: 5%; width: 22%; aspect-ratio: 1; border-radius: 50%; background: var(--mint-pale); pointer-events: none; }
+    .pw-card { position: relative; z-index: 1; background: var(--white); border-radius: 28px; padding: 3rem 3.5rem; max-width: 440px; width: 100%; box-shadow: 0 32px 80px rgba(13,12,29,0.12), 0 0 0 1px rgba(13,12,29,0.06); text-align: center; }
+    .pw-logo       { margin: 0 auto 2.25rem; height: 56px; width: auto; }
+    .pw-heading    { font-family: var(--serif); font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 0.6rem; line-height: 1.1; }
+    .pw-heading em { font-style: italic; color: var(--purple); }
+    .pw-sub        { font-size: 0.88rem; line-height: 1.65; color: var(--ink-light); margin-bottom: 2rem; }
+    .pw-input { width: 100%; padding: 0.85rem 1.1rem; border: 1.5px solid rgba(13,12,29,0.15); border-radius: 12px; font-family: var(--sans); font-size: 0.95rem; color: var(--ink); background: var(--cream); outline: none; transition: border-color 0.2s, background 0.2s; letter-spacing: 0.1em; margin-bottom: 0.75rem; display: block; }
+    .pw-input:focus  { border-color: var(--purple); background: var(--white); }
+    .pw-input.error  { border-color: #e05252; }
+    .pw-error        { font-size: 0.78rem; color: #e05252; margin-bottom: 0.85rem; display: none; text-align: left; }
+    .pw-error.visible { display: block; }
+    .pw-btn { width: 100%; padding: 0.9rem 1.75rem; border-radius: 100px; font-size: 0.875rem; font-weight: 600; font-family: var(--sans); background: var(--ink); color: var(--white); border: none; cursor: pointer; transition: opacity 0.2s, transform 0.2s; }
+    .pw-btn:hover { opacity: 0.82; transform: translateY(-2px); }
+    @keyframes pw-shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60%  { transform: translateX(-7px); }
+      40%, 80%  { transform: translateX(7px); }
+    }
+    .pw-input.shake { animation: pw-shake 0.4s ease; }
+
+    /* ─── Scroll reveal ──────────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       NAV
+       ═══════════════════════════════════════════════════════════════════ */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(250,249,247,0.94);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(13,12,29,0.07);
+      padding: 0.75rem 0;
+    }
+    .nav-inner {
+      max-width: 1280px; margin: 0 auto; padding: 0 3rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo     { display: flex; align-items: center; }
+    .nav-logo img { height: 76px; width: auto; display: block; }
+    .nav-links {
+      display: flex; align-items: center; gap: 2rem;
+      flex: 1; justify-content: center;
+    }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--ink-mid); transition: color 0.2s; position: relative; padding-bottom: 2px; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 2px; background: var(--purple); border-radius: 2px; transform: scaleX(0); transform-origin: left; transition: transform 0.25s ease; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a.active { color: var(--ink); }
+    .nav-links a.active::after { transform: scaleX(1); }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.5rem; border-radius: 100px;
+      background: var(--ink); color: var(--white);
+      font-size: 0.85rem; font-weight: 600;
+      transition: opacity 0.2s, transform 0.2s;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .nav-cta:hover { opacity: 0.82; transform: translateY(-2px); }
+    .nav-toggle {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 4px; background: none; border: none; flex-shrink: 0;
+    }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform 0.25s ease, opacity 0.25s ease; }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-mobile-panel {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      background: rgba(250,249,247,0.97);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(13,12,29,0.07);
+      padding: 1.25rem 0 1.75rem;
+      box-shadow: 0 12px 32px rgba(13,12,29,0.08);
+    }
+    .nav-mobile-panel.open { display: block; }
+    .nav-mobile-panel a { display: block; padding: 0.85rem 3rem; font-size: 1rem; font-weight: 500; color: var(--ink-mid); transition: color 0.2s; }
+    .nav-mobile-panel a:hover { color: var(--ink); }
+    .nav-mobile-panel a.active { color: var(--ink); }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════════════════════════ */
+    .cs-hero {
+      position: relative;
+      background: var(--ink);
+      overflow: hidden;
+      padding: 6rem 0 5rem;
+    }
+    .cs-hero-img {
+      position: absolute; inset: 0;
+      background-image: url("images/hochschule-hero.png");
+      background-size: cover; background-position: center;
+      opacity: 0.4;
+    }
+    .cs-hero-inner {
+      position: relative; z-index: 1;
+      max-width: 1280px; margin: 0 auto; padding: 0 3rem;
+    }
+    .cs-hero-label {
+      display: inline-block;
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--mint);
+      margin-bottom: 1.5rem;
+    }
+    .cs-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      font-weight: 700; line-height: 1.08; letter-spacing: -0.025em;
+      color: var(--white); max-width: 820px; margin-bottom: 3.5rem;
+    }
+    .cs-hero h1 em { font-style: italic; color: var(--purple); font-weight: 600; }
+    .cs-meta {
+      display: flex; gap: 4rem; flex-wrap: wrap;
+    }
+    .cs-meta-item {}
+    .cs-meta-label {
+      font-size: 0.62rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.4);
+      margin-bottom: 0.35rem; display: block;
+    }
+    .cs-meta-value {
+      font-size: 1rem; font-weight: 500; color: var(--white);
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       LAYOUT, side nav + content
+       ═══════════════════════════════════════════════════════════════════ */
+    .cs-body { flex: 1; }
+    .cs-layout {
+      display: flex;
+      gap: 3.5rem;
+      align-items: flex-start;
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 5rem 3rem 7rem;
+    }
+    .cs-content { flex: 1; min-width: 0; max-width: 760px; }
+
+    /* Side nav */
+    .cs-sidenav {
+      width: 185px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 6.5rem;
+    }
+    .cs-sidenav-heading {
+      font-size: 0.6rem; font-weight: 600; letter-spacing: 0.13em;
+      text-transform: uppercase; color: var(--ink-light);
+      display: block; margin-bottom: 0.65rem; padding-left: 0.65rem;
+    }
+    .cs-sidenav ul { list-style: none; display: flex; flex-direction: column; }
+    .cs-sidenav-link {
+      display: block;
+      padding: 0.38rem 0.65rem;
+      border-left: 2px solid transparent;
+      font-size: 0.73rem; font-weight: 500; color: var(--ink-light);
+      line-height: 1.4; text-decoration: none;
+      border-radius: 0 6px 6px 0;
+      transition: color 0.18s, border-color 0.18s, background 0.18s;
+    }
+    .cs-sidenav-link:hover { color: var(--ink-mid); background: rgba(124,111,255,0.05); }
+    .cs-sidenav-link.active {
+      color: var(--purple); font-weight: 600;
+      border-left-color: var(--purple);
+    }
+
+    /* Section label */
+    .cs-section-label {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.13em;
+      text-transform: uppercase; color: var(--purple);
+      display: block; margin-bottom: 1.25rem;
+    }
+
+    /* Section heading */
+    .cs-h2 {
+      font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700; line-height: 1.12; letter-spacing: -0.015em;
+      color: var(--ink); margin-bottom: 1.5rem;
+    }
+    .cs-h2 em { font-style: italic; color: var(--purple); }
+    .cs-h3 {
+      font-family: var(--serif); font-size: 1.3rem;
+      font-weight: 600; line-height: 1.2; letter-spacing: -0.01em;
+      color: var(--ink); margin-bottom: 0.85rem;
+    }
+
+    /* Body text */
+    .cs-lead {
+      font-size: 1.05rem; line-height: 1.78; color: var(--ink-mid);
+      margin-bottom: 2.25rem;
+    }
+    .cs-p {
+      font-size: 0.9rem; line-height: 1.8; color: var(--ink-mid);
+      margin-bottom: 1rem;
+    }
+
+    /* Key-value rows */
+    .cs-kv-list { display: flex; flex-direction: column; gap: 0; margin-bottom: 2.5rem; }
+    .cs-kv-row {
+      display: grid; grid-template-columns: 170px 1fr;
+      gap: 1.5rem; padding: 1.1rem 0;
+      border-top: 1px solid rgba(13,12,29,0.07);
+    }
+    .cs-kv-row:last-child { border-bottom: 1px solid rgba(13,12,29,0.07); }
+    .cs-kv-key {
+      font-size: 0.78rem; font-weight: 600; color: var(--ink);
+      padding-top: 0.05rem;
+    }
+    .cs-kv-val { font-size: 0.88rem; line-height: 1.75; color: var(--ink-mid); }
+
+    /* Stats strip */
+    .cs-stats {
+      background: var(--white);
+      border-radius: 20px; border: 1px solid rgba(13,12,29,0.07);
+      padding: 2rem 2.5rem; display: flex;
+      gap: 0; margin-bottom: 4rem;
+    }
+    .cs-stat { flex: 1; padding: 0 2rem; }
+    .cs-stat:first-child { padding-left: 0; }
+    .cs-stat:last-child  { padding-right: 0; }
+    .cs-stat-n {
+      display: block; font-family: var(--serif);
+      font-size: 2.4rem; font-weight: 700; color: var(--ink);
+      letter-spacing: -0.02em; line-height: 1; margin-bottom: 0.3rem;
+    }
+    .cs-stat-n em { font-style: italic; color: var(--purple); }
+    .cs-stat-l { font-size: 0.72rem; color: var(--ink-light); letter-spacing: 0.04em; }
+    .cs-stat-sep { width: 1px; background: rgba(13,12,29,0.09); flex-shrink: 0; align-self: stretch; }
+
+    /* Divider */
+    .cs-divider { border: none; border-top: 1px solid rgba(13,12,29,0.08); margin: 3.5rem 0; }
+
+    /* Semester cards */
+    .cs-semester-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem; margin: 2rem 0 2.5rem;
+    }
+    .cs-semester-card {
+      background: var(--white); border: 1px solid rgba(13,12,29,0.08);
+      border-radius: 16px; padding: 1.75rem 1.5rem;
+    }
+    .cs-semester-tag {
+      display: inline-block; font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple);
+      margin-bottom: 0.75rem;
+    }
+    .cs-semester-title {
+      font-family: var(--serif); font-size: 1.15rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 0.65rem; line-height: 1.25;
+    }
+    .cs-semester-body { font-size: 0.83rem; line-height: 1.7; color: var(--ink-mid); }
+    @media (max-width: 900px) {
+      .cs-semester-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Images */
+    .cs-img {
+      width: 100%; border-radius: 16px; overflow: hidden;
+      margin: 2rem 0;
+      box-shadow: 0 8px 32px rgba(13,12,29,0.1), 0 2px 8px rgba(13,12,29,0.06);
+    }
+    .cs-img img { width: 100%; height: auto; display: block; }
+    .cs-img-caption {
+      font-size: 0.75rem; color: var(--ink-light);
+      margin-top: 0.6rem; text-align: center;
+    }
+
+    /* Showcase grid (student work) */
+    .cs-showcase-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.25rem; margin: 2rem 0 1rem;
+    }
+    .cs-showcase-grid img {
+      width: 100%; height: auto; display: block;
+      border-radius: 12px; cursor: zoom-in;
+      box-shadow: 0 4px 16px rgba(13,12,29,0.10);
+    }
+    @media (max-width: 768px) {
+      .cs-showcase-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Lightbox */
+    #cs-lightbox {
+      display: none; position: fixed; inset: 0; z-index: 900;
+      background: rgba(13,12,29,0.88); backdrop-filter: blur(6px);
+      align-items: center; justify-content: center; padding: 2rem;
+    }
+    #cs-lightbox.open { display: flex; }
+    #cs-lightbox img {
+      max-width: 90vw; max-height: 90vh;
+      border-radius: 16px; box-shadow: 0 32px 80px rgba(0,0,0,0.4);
+      object-fit: contain;
+    }
+    #cs-lightbox-close {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      background: rgba(255,255,255,0.12); border: none; color: #fff;
+      width: 2.5rem; height: 2.5rem; border-radius: 50%; font-size: 1.25rem;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    #cs-lightbox-close:hover { background: rgba(255,255,255,0.22); }
+
+    /* Bullet list */
+    .cs-bullets { margin: 0.75rem 0 1.5rem 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .cs-bullet {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      font-size: 0.88rem; line-height: 1.65; color: var(--ink-mid);
+    }
+    .cs-bullet-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--purple); flex-shrink: 0; margin-top: 0.5rem;
+    }
+
+    /* Note / disclosure box */
+    .cs-note {
+      background: var(--purple-pale); border-radius: 14px;
+      padding: 1.1rem 1.4rem; font-size: 0.8rem; line-height: 1.65;
+      color: var(--ink-mid); margin: 1.5rem 0 2.5rem;
+    }
+    .cs-note strong { color: var(--ink); }
+
+    /* Content back link */
+    .cs-back {
+      display: flex; width: fit-content; align-items: center; gap: 0.5rem;
+      font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 0.55rem 1.1rem 0.55rem 0.85rem;
+      border-radius: 100px;
+      margin-bottom: 1.75rem;
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .cs-back:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.32); color: #fff; transform: translateX(-2px); }
+    .cs-back svg   { flex-shrink: 0; }
+
+    /* Tags */
+    .cs-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 2rem; }
+    .cs-tag {
+      font-size: 0.62rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--ink-mid);
+      border: 1px solid rgba(13,12,29,0.14); border-radius: 100px;
+      padding: 0.25rem 0.7rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════════════════ */
+    footer { background: var(--ink); padding: 2rem 0; }
+    .footer-inner {
+      max-width: 1280px; margin: 0 auto; padding: 1.75rem 3rem 0;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+    }
+    .footer-back {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.5);
+      transition: color 0.2s;
+    }
+    .footer-back:hover { color: rgba(255,255,255,0.9); }
+    .footer-links { display: flex; align-items: center; gap: 2rem; }
+    .footer-link  { font-size: 0.8rem; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; }
+    .footer-link:hover { color: rgba(255,255,255,0.65); }
+
+    /* ─── Back to top ───────────────────────────────────────────────── */
+    #back-to-top {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 300;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--ink); color: var(--white); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease, background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px rgba(13,12,29,0.22);
+    }
+    #back-to-top.visible { opacity: 1; pointer-events: auto; }
+    #back-to-top:hover   { background: var(--purple); transform: translateY(-2px); }
+
+    /* ─── Responsive ─────────────────────────────────────────────────── */
+    @media (max-width: 1080px) {
+      .cs-layout  { display: block; }
+      .cs-sidenav { display: none; }
+      .cs-content { max-width: 840px; margin: 0 auto; }
+    }
+    @media (max-width: 768px) {
+      .nav-inner    { padding: 0 1.5rem; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle   { display: flex; }
+      .cs-hero-inner { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .cs-layout    { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .cs-meta      { gap: 2rem; }
+      .cs-kv-row    { grid-template-columns: 1fr; gap: 0.35rem; }
+      .cs-stats     { flex-direction: column; gap: 1.5rem; padding: 1.75rem; }
+      .cs-stat-sep  { display: none; }
+      .cs-stat      { padding: 0; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+      .pw-card      { padding: 2.25rem 1.75rem; }
+    }
+    @media (max-width: 480px) {
+      .cs-hero h1 { font-size: 2rem; }
+    }
+  </style>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <!-- ─── Password Gate ─────────────────────────────────────────────── -->
+  <div id="pw-gate" class="hidden">
+    <div class="pw-deco-1" aria-hidden="true"></div>
+    <div class="pw-deco-2" aria-hidden="true"></div>
+    <div class="pw-card">
+      <img class="pw-logo" src="images/LogoChristina.svg" alt="Christina Ebert" />
+      <h1 class="pw-heading">Protected <em>Case Study.</em></h1>
+      <p class="pw-sub">This page contains project content shared in confidence.<br/>Please enter the access password.</p>
+      <input class="pw-input" type="password" id="pwInput" placeholder="Password" autocomplete="current-password" />
+      <p class="pw-error" id="pwError">Wrong password &ndash; please try again.</p>
+      <button class="pw-btn" id="pwSubmit">Unlock access</button>
+    </div>
+  </div>
+
+
+  <!-- ─── Nav ──────────────────────────────────────────────────────── -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/LogoChristina.svg" alt="Christina Ebert" />
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#work">Work</a>
+        <a href="index.html#process">Process</a>
+        <a href="index.html#testimonials">Testimonials</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#collaboration">Work with me</a>
+        <a href="work.html" class="active" style="display:inline-flex;align-items:center;gap:0.35rem;">
+          <i data-lucide="lock" width="12" height="12"></i>
+          Case Studies
+        </a>
+      </div>
+
+      <a href="index.html#contact" class="nav-cta">Let's chat</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="nav-mobile-panel" id="navMobile">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#process">Process</a>
+      <a href="index.html#testimonials">Testimonials</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#collaboration">Work with me</a>
+      <a href="work.html" class="active" style="display:flex;align-items:center;gap:0.5rem;">
+        <i data-lucide="lock" width="13" height="13"></i>
+        Case Studies
+      </a>
+      <a href="index.html#contact">Let's chat</a>
+    </div>
+  </nav>
+
+
+  <!-- ─── Hero ─────────────────────────────────────────────────────── -->
+  <div class="cs-hero">
+    <div class="cs-hero-img" aria-hidden="true"></div>
+    <div class="cs-hero-inner">
+      <a href="work.html" class="cs-back" onclick="if (document.referrer.indexOf(location.origin) === 0) { event.preventDefault(); history.back(); }">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
+          <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd"/>
+        </svg>
+        Back
+      </a>
+      <span class="cs-hero-label">Higher Education · UX Teaching · Design Thinking</span>
+      <h1>Teaching three cohorts of<br/>students to think like <em>designers</em></h1>
+      <div class="cs-meta">
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Institution</span>
+          <span class="cs-meta-value">Hochschule München</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">My Role</span>
+          <span class="cs-meta-value">Lecturer (Lehrbeauftragte)</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Timeline</span>
+          <span class="cs-meta-value">WS 2023/24 &ndash; WS 2024/25</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Format</span>
+          <span class="cs-meta-value">Weekly seminar, Informatik &amp; Design</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ─── Content ──────────────────────────────────────────────────── -->
+  <main class="cs-body">
+    <div class="cs-layout">
+
+      <!-- Side nav -->
+      <aside class="cs-sidenav" aria-label="Table of contents">
+        <span class="cs-sidenav-heading">Contents</span>
+        <ul>
+          <li><a href="#sec-context" class="cs-sidenav-link">Context &amp; Role</a></li>
+          <li><a href="#sec-approach" class="cs-sidenav-link">Teaching Approach</a></li>
+          <li><a href="#sec-semesters" class="cs-sidenav-link">Three Semesters</a></li>
+          <li><a href="#sec-process" class="cs-sidenav-link">The Design-Thinking Sprint</a></li>
+          <li><a href="#sec-results" class="cs-sidenav-link">Student Work</a></li>
+          <li><a href="#sec-reflection" class="cs-sidenav-link">Reflection &amp; Learnings</a></li>
+        </ul>
+      </aside>
+
+      <div class="cs-content">
+
+      <!-- Tags -->
+      <div class="cs-tags">
+        <span class="cs-tag">Higher Education</span>
+        <span class="cs-tag">UX Teaching</span>
+        <span class="cs-tag">Design Thinking</span>
+        <span class="cs-tag">Curriculum Design</span>
+        <span class="cs-tag">Conversational &amp; AI UX</span>
+        <span class="cs-tag">2023–2025</span>
+      </div>
+
+      <!-- Key outcomes -->
+      <div class="cs-stats reveal">
+        <div class="cs-stat">
+          <span class="cs-stat-n">3</span>
+          <span class="cs-stat-l">Semesters as lecturer, back to back</span>
+        </div>
+        <div class="cs-stat-sep"></div>
+        <div class="cs-stat">
+          <span class="cs-stat-n">Research <em>→</em> Prototype</span>
+          <span class="cs-stat-l">Full design-thinking cycle taught end-to-end</span>
+        </div>
+        <div class="cs-stat-sep"></div>
+        <div class="cs-stat">
+          <span class="cs-stat-n">AI Chatbot</span>
+          <span class="cs-stat-l">Flagship final-project format, WS 2024/25</span>
+        </div>
+      </div>
+
+      <!-- ── Context & Role ─────────────────────────────────────── -->
+      <span id="sec-context" class="cs-section-label">Context &amp; Role</span>
+      <h2 class="cs-h2 reveal">Stepping into the classroom, part-time.</h2>
+      <p class="cs-lead">Alongside my work as a product designer, I took on a <strong>Lehrauftrag</strong> (a part-time teaching mandate) at Hochschule München, in the <strong>Informatik und Design</strong> program (a joint computer-science-and-design degree). Over three consecutive semesters I ran the weekly <em>Projektmodul</em> seminar: the course where students apply UX and product-design methods to a real project brief for the first time.</p>
+
+      <div class="cs-kv-list reveal">
+        <div class="cs-kv-row">
+          <span class="cs-kv-key">Designing the curriculum</span>
+          <span class="cs-kv-val">Planned and structured each semester's session sequence (<em>Termine</em>) myself, from kickoff through to final critique, and adapted the syllabus every term based on what the previous cohort struggled with.</span>
+        </div>
+        <div class="cs-kv-row">
+          <span class="cs-kv-key">Building original teaching materials</span>
+          <span class="cs-kv-val">Created my own slide decks, worksheets and Figma/FigJam canvases for each session, rather than reusing generic design-thinking templates, so students would work in the same tools and formats used in industry.</span>
+        </div>
+        <div class="cs-kv-row">
+          <span class="cs-kv-key">Coaching student teams</span>
+          <span class="cs-kv-val">Guided small project teams through research, ideation and prototyping in weekly working sessions, and assessed final deliverables against a structured evaluation rubric.</span>
+        </div>
+      </div>
+
+      <!-- ── Teaching Approach ─────────────────────────────────────── -->
+      <span id="sec-approach" class="cs-section-label">Teaching Approach</span>
+      <h2 class="cs-h2 reveal">Make the studio feel like a <em>real</em> design team.</h2>
+      <p class="cs-lead">The course only runs for one semester, so the biggest design challenge wasn't the content: it was pacing an entire product-design cycle, research through prototype, into a compressed, weekly rhythm without losing rigor. My approach across all three semesters:</p>
+
+      <div class="cs-bullets reveal">
+        <div class="cs-bullet"><span class="cs-bullet-dot"></span>Structure the semester as a single sprint with clear milestones (kickoff, research, synthesis, ideation, prototyping, critique) instead of a series of disconnected lectures.</div>
+        <div class="cs-bullet"><span class="cs-bullet-dot"></span>Teach every method through the professional tool students would use it in (FigJam for research synthesis, Figma for prototyping) instead of worksheets in isolation.</div>
+        <div class="cs-bullet"><span class="cs-bullet-dot"></span><span>Treat each session (<em>Termin</em>) as a self-contained input + hands-on exercise, so teams left every class having produced something, not just having heard about a method.</span></div>
+        <div class="cs-bullet"><span class="cs-bullet-dot"></span>Iterate the syllabus every semester: content moved from general web &amp; interface basics toward a full, AI-inflected design-thinking process as I learned what each cohort needed.</div>
+      </div>
+
+      <hr class="cs-divider" />
+
+      <!-- ── Three Semesters ─────────────────────────────────────── -->
+      <span id="sec-semesters" class="cs-section-label">Three Semesters</span>
+      <h2 class="cs-h2 reveal">From web basics to AI product design.</h2>
+      <p class="cs-lead">Each semester built on the last, not repeating the same syllabus but progressively deepening the process students were taught.</p>
+
+      <div class="cs-semester-grid">
+        <div class="cs-semester-card">
+          <span class="cs-semester-tag">WS 2023/24</span>
+          <div class="cs-semester-title">Web &amp; Game Design Foundations</div>
+          <div class="cs-semester-body">First run of the Projektmodul: web-design fundamentals and a game-design unit, establishing the session format and kickoff structure I'd refine in later semesters.</div>
+        </div>
+        <div class="cs-semester-card">
+          <span class="cs-semester-tag">SoSe 2024</span>
+          <div class="cs-semester-title">AI Innovation &amp; Prototyping</div>
+          <div class="cs-semester-body">Shifted focus toward AI innovation and hands-on prototyping, with input sessions on typography, iconography, navigation concepts and responsive design.</div>
+        </div>
+        <div class="cs-semester-card">
+          <span class="cs-semester-tag">WS 2024/25</span>
+          <div class="cs-semester-title">Full Design-Thinking Cycle</div>
+          <div class="cs-semester-body">Most complete version of the course: user research through synthesis, storyboarding, prototyping and accessibility, culminating in a student-built AI chatbot concept.</div>
+        </div>
+      </div>
+
+      <hr class="cs-divider" />
+
+      <!-- ── The Design-Thinking Sprint ─────────────────────────── -->
+      <span id="sec-process" class="cs-section-label">WS 2024/25, In Detail</span>
+      <h2 class="cs-h2 reveal">The design-thinking sprint I taught.</h2>
+      <p class="cs-lead">In the most recent semester, I ran the Projektmodul as a complete, compressed design-thinking sprint. Each numbered session (<em>Termin</em>) had its own input and exercise, building directly on the last:</p>
+
+      <div class="cs-kv-list reveal">
+        <div class="cs-kv-row">
+          <span class="cs-kv-key">Termin 3 &middot; User Research</span>
+          <span class="cs-kv-val">Introduction to qualitative research methods; teams planned and ran their own interviews.</span>
+        </div>
+        <div class="cs-kv-row">
+          <span class="cs-kv-key">Termin 4 &middot; Synthesis</span>
+          <span class="cs-kv-val">Turning raw research into personas and problem statements as a shared team artifact.</span>
+        </div>
+        <div class="cs-kv-row">
+          <span class="cs-kv-key">Termin 5 &middot; Storyboarding</span>
+          <span class="cs-kv-val">Visualizing the target experience before any UI work began, to keep concepts user-need-driven.</span>
+        </div>
+        <div class="cs-kv-row">
+          <span class="cs-kv-key">Termin 6 &middot; Sprint Retro</span>
+          <span class="cs-kv-val">Mid-course checkpoint: teams reviewed progress and re-scoped for the remaining weeks.</span>
+        </div>
+        <div class="cs-kv-row">
+          <span class="cs-kv-key">Termin 7 &middot; MVP &amp; Branding Sprint</span>
+          <span class="cs-kv-val">Defining a minimum viable concept and giving it a coherent visual identity.</span>
+        </div>
+        <div class="cs-kv-row">
+          <span class="cs-kv-key">Termin 11 &middot; Accessibility &amp; Usability</span>
+          <span class="cs-kv-val">Closing input on accessibility, usability heuristics, and designing for a "digital home", applied as a final pass on each team's prototype.</span>
+        </div>
+      </div>
+
+      <!-- ── Student Work ─────────────────────────────────────────── -->
+      <span id="sec-results" class="cs-section-label">Student Work</span>
+      <h2 class="cs-h2 reveal">What one team shipped: <em>an AI study advisor</em>.</h2>
+      <p class="cs-lead">One WS 2024/25 team designed &ldquo;DAI.LLAMA&rdquo;, an AI chatbot concept to help prospective students choose between Hochschule München's Informatik-und-Design degree programs. Working through the full sprint above, the team took it from research to a polished, prototyped interface in Figma.</p>
+
+      <div class="cs-note">
+        Shown here as an anonymized example of the process outcome; the work and its interface design belong to the student team, not to me.
+      </div>
+
+      <div class="cs-showcase-grid">
+        <img src="images/hochschule-chatbot-studiengang.png" alt="DAI.LLAMA chatbot: study-program selection screen" loading="lazy" />
+        <img src="images/hochschule-chatbot-chat.png" alt="DAI.LLAMA chatbot: conversation screen with sample answer" loading="lazy" />
+        <img src="images/hochschule-chatbot-profil.png" alt="DAI.LLAMA chatbot: student profile screen" loading="lazy" />
+        <img src="images/hochschule-chatbot-mobile.png" alt="DAI.LLAMA chatbot: mobile view" loading="lazy" />
+      </div>
+      <p class="cs-img-caption">Student project &middot; &ldquo;DAI.LLAMA&rdquo;, an AI study-advisor chatbot &middot; WS 2024/25</p>
+
+      <hr class="cs-divider" />
+
+      <!-- ── Reflection & Learnings ─────────────────────────────── -->
+      <span id="sec-reflection" class="cs-section-label">Reflection &amp; Learnings</span>
+      <h2 class="cs-h2 reveal">What teaching taught <em>me</em>.</h2>
+      <p class="cs-lead">Three semesters in front of the same course forced me to translate everything I do intuitively as a practicing designer into something explicit, sequenced and teachable, which sharpened my own process as much as it did my students'.</p>
+
+      <div class="cs-kv-list reveal">
+        <div class="cs-kv-row">
+          <span class="cs-kv-key">Process over templates</span>
+          <span class="cs-kv-val">The syllabus that worked best wasn't the one with the most methods: it was the one that mirrored a real sprint closely enough that students could feel the cause and effect between research and design decisions.</span>
+        </div>
+        <div class="cs-kv-row">
+          <span class="cs-kv-key">Meeting students where AI already was</span>
+          <span class="cs-kv-val">By WS 2024/25, students were already using AI tools daily; the course worked better once it treated that as a starting point for critical design thinking, rather than something to introduce from scratch.</span>
+        </div>
+        <div class="cs-kv-row">
+          <span class="cs-kv-key">Iterating the course like a product</span>
+          <span class="cs-kv-val">Each semester's syllabus was a direct response to where the previous cohort got stuck, treating the curriculum itself as something to prototype and improve, not a fixed deliverable.</span>
+        </div>
+      </div>
+
+      </div><!-- /.cs-content -->
+    </div><!-- /.cs-layout -->
+  </main>
+
+  <!-- ─── Footer ───────────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-inner">
+      <a href="work.html" class="footer-back">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
+          <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd"/>
+        </svg>
+        Back to Case Studies
+      </a>
+      <div class="footer-links">
+        <span class="footer-link">© 2026 Christina Ebert</span>
+        <a href="impressum.html" class="footer-link">Legal Notice</a>
+        <a href="datenschutz.html" class="footer-link">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── Lightbox ────────────────────────────────────────────────── -->
+  <div id="cs-lightbox">
+    <button id="cs-lightbox-close" aria-label="Close">&#x2715;</button>
+    <img id="cs-lightbox-img" src="" alt="" />
+  </div>
+
+  <!-- ─── Back to top ───────────────────────────────────────────────── -->
+  <button id="back-to-top" aria-label="Back to top">
+    <i data-lucide="arrow-up" width="18" height="18"></i>
+  </button>
+
+
+  <!-- ─── Scripts ──────────────────────────────────────────────────── -->
+  <script>
+  (function () {
+    'use strict';
+
+    /* ── Password gate ─────────────────────────────────────────────── */
+    // TO CHANGE THE PASSWORD: update this string before publishing
+    var CORRECT_PASSWORD = 'portfolio2026';
+    var STORAGE_KEY = 'ce_portfolio_unlocked';
+
+    var gate     = document.getElementById('pw-gate');
+    var pwInput  = document.getElementById('pwInput');
+    var pwSubmit = document.getElementById('pwSubmit');
+    var pwError  = document.getElementById('pwError');
+
+    function unlock() {
+      sessionStorage.setItem(STORAGE_KEY, '1');
+      gate.classList.add('unlocking');
+      setTimeout(function () { gate.classList.add('hidden'); }, 520);
+    }
+
+    if (sessionStorage.getItem(STORAGE_KEY) === '1') { gate.classList.add('hidden'); }
+
+    function tryUnlock() {
+      if (pwInput.value.trim() === CORRECT_PASSWORD) {
+        pwError.classList.remove('visible');
+        pwInput.classList.remove('error');
+        unlock();
+      } else {
+        pwInput.classList.add('error');
+        pwError.classList.add('visible');
+        pwInput.classList.remove('shake');
+        void pwInput.offsetWidth;
+        pwInput.classList.add('shake');
+      }
+    }
+    pwSubmit.addEventListener('click', tryUnlock);
+    pwInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') tryUnlock(); });
+    pwInput.addEventListener('input', function () {
+      pwInput.classList.remove('error');
+      pwError.classList.remove('visible');
+    });
+
+    /* ── Mobile nav toggle ────────────────────────────────────────── */
+    var navToggle = document.getElementById('navToggle');
+    var navMobile = document.getElementById('navMobile');
+    navToggle.addEventListener('click', function () {
+      var isOpen = navMobile.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    navMobile.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navMobile.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* ── Side nav active section ───────────────────────────────────── */
+    var sectionAnchors = Array.from(document.querySelectorAll('.cs-section-label[id]'));
+    var sideNavLinks   = Array.from(document.querySelectorAll('.cs-sidenav-link'));
+
+    function updateSideNav() {
+      if (!sectionAnchors.length || !sideNavLinks.length) return;
+      var offset  = 130;
+      var current = sectionAnchors[0];
+      sectionAnchors.forEach(function (s) {
+        if (s.getBoundingClientRect().top <= offset) { current = s; }
+      });
+      sideNavLinks.forEach(function (link) {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current.id);
+      });
+    }
+
+    window.addEventListener('scroll', updateSideNav, { passive: true });
+    updateSideNav();
+
+    /* ── Back to top ───────────────────────────────────────────────── */
+    var btt = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function () {
+      btt.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    btt.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+    /* ── Lightbox ──────────────────────────────────────────────────── */
+    var lightbox      = document.getElementById('cs-lightbox');
+    var lightboxImg   = document.getElementById('cs-lightbox-img');
+    var lightboxClose = document.getElementById('cs-lightbox-close');
+
+    document.querySelectorAll('.cs-showcase-grid img, .cs-zoomable').forEach(function (img) {
+      img.addEventListener('click', function () {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('open');
+      });
+    });
+
+    function closeLightbox() { lightbox.classList.remove('open'); lightboxImg.src = ''; }
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function (e) { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
+
+    /* ── Scroll reveal ────────────────────────────────── */
+    var revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach(function (el) { revealObserver.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add('visible'); });
+    }
+
+    lucide.createIcons();
+
+  })();
+  </script>
+
+</body>
+</html>

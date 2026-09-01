@@ -125,8 +125,8 @@
     /* ─── Scroll reveal ─────────────────────────────────────────────── */
     .reveal {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
     .reveal.visible {
       opacity: 1;
@@ -157,39 +157,6 @@
       background: var(--mint);
       flex-shrink: 0;
       box-shadow: 0 0 0 3px rgba(43,203,155,0.22);
-    }
-
-    /* ─── Language switch ───────────────────────────────────────────── */
-    .lang-switch {
-      display: flex;
-      align-items: center;
-      gap: 0.1rem;
-      flex-shrink: 0;
-    }
-    .lang-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.3rem 0.45rem;
-      color: var(--ink-light);
-      font-size: 0.78rem;
-      font-weight: 600;
-      font-family: var(--sans);
-      letter-spacing: 0.05em;
-      transition: color 0.2s;
-      line-height: 1;
-    }
-    .lang-btn.active { color: var(--ink); }
-    .lang-btn:hover { color: var(--ink); }
-    .lang-divider {
-      color: var(--ink-light);
-      font-size: 0.7rem;
-      user-select: none;
-      line-height: 1;
-    }
-    .lang-switch-mobile {
-      padding: 0.6rem 3rem 0.2rem;
-      margin-top: 0.25rem;
     }
 
     /* ═══════════════════════════════════════════════════════════════════
@@ -816,6 +783,18 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
+    .work-card-cta {
+      margin-top: 0.2rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--purple);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: gap 0.2s ease;
+      cursor: pointer;
+    }
+    .work-card-cta:hover { gap: 0.55rem; }
     .work-card-arrow {
       position: absolute;
       top: 1.25rem; right: 1.25rem;
@@ -1436,7 +1415,7 @@
       font-size: 0.84rem; color: var(--ink-mid); line-height: 1.5;
     }
     .cfm-trust li svg { flex-shrink: 0; margin-top: 2px; color: var(--purple); }
-    .cfm-deco-fill {
+.cfm-deco-fill {
       position: absolute;
       right: -10%; bottom: -5%;
       width: 55%; aspect-ratio: 1;
@@ -1666,6 +1645,7 @@
       .hero-stat { flex: 0 0 45%; padding: 0; }
       .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
       .footer-links { flex-direction: column; gap: 0.75rem; }
+
     }
 
   </style>
@@ -1685,6 +1665,12 @@
           <li><a href="#testimonials" data-i18n="nav_testimonials">Testimonials</a></li>
           <li><a href="#about" data-i18n="nav_about">About</a></li>
           <li><a href="#collaboration" data-i18n="nav_collab">Work with me</a></li>
+          <li>
+            <a href="work.html" style="display:inline-flex;align-items:center;gap:0.35rem;">
+              <i data-lucide="lock" width="12" height="12"></i>
+              Case Studies
+            </a>
+          </li>
         </ul>
 
         <a href="#contact" class="nav-cta" data-contact-modal data-i18n="nav_cta">Let's chat</a>
@@ -1700,6 +1686,10 @@
         <a href="#testimonials" data-i18n="nav_testimonials">Testimonials</a>
         <a href="#about" data-i18n="nav_about">About</a>
         <a href="#collaboration" data-i18n="nav_collab">Work with me</a>
+        <a href="work.html" style="display:flex;align-items:center;gap:0.5rem;">
+          <i data-lucide="lock" width="13" height="13"></i>
+          Case Studies
+        </a>
         <a href="#contact" data-contact-modal data-i18n="nav_cta">Let's chat</a>
       </div>
     </div>
@@ -1708,6 +1698,7 @@
 
   <!-- ─── Hero ──────────────────────────────────────────────────────── -->
   <section id="hero">
+    <!-- Decorative shapes - hero only -->
     <div class="hero-deco-ring" aria-hidden="true"></div>
     <div class="hero-deco-fill" aria-hidden="true"></div>
     <div class="hero-deco-mint" aria-hidden="true"></div>
@@ -1715,6 +1706,8 @@
     <div class="hero-body">
       <div class="container">
         <div class="hero-body-inner">
+
+          <!-- Left: content -->
           <div class="hero-content">
             <div class="hero-eyebrow-wrap hero-anim-1">
               <span class="avail-badge">
@@ -1723,15 +1716,9 @@
               </span>
             </div>
 
-            <h1 class="hero-heading hero-anim-2" data-i18n="hero_heading">
-              Designing<br/>
-              <em>experiences</em><br/>
-              that matter.
-            </h1>
+            <h1 class="hero-heading hero-anim-2" data-i18n="hero_heading">Designing<br/><em>experiences</em><br/>that matter.</h1>
 
-            <p class="hero-sub hero-anim-3" data-i18n="hero_sub">
-              Hi, I'm Christina. I help product teams create great digital experiences – by connecting design, strategy and business. Before the first prompt. Before the first pixel.
-            </p>
+            <p class="hero-sub hero-anim-3" data-i18n="hero_sub">Hi, I'm Christina. I help product teams create great digital experiences – by connecting design, strategy and business. Before the first prompt. Before the first pixel.</p>
 
             <div class="hero-actions hero-anim-4">
               <a href="#work" class="btn-hero-primary">
@@ -1741,9 +1728,13 @@
               <a href="#contact" class="btn-hero-outline" data-contact-modal data-i18n="hero_cta_secondary">Let's chat</a>
             </div>
           </div>
+
+
         </div>
       </div>
     </div>
+
+
   </section>
 
 
@@ -1797,11 +1788,13 @@
             <div class="work-card-info">
               <div class="work-card-tags">
                 <span class="work-card-tag">Health &amp; Fitness</span>
-                <span class="work-card-tag">Loyalty</span>
+                <span class="work-card-tag">Loyalty Program</span>
+                <span class="work-card-tag">UX Design</span>
+                <span class="work-card-tag">Product Design</span>
                 <span class="work-card-tag">2025</span>
               </div>
-              <div class="work-card-title" data-i18n="work_muuvr_title">MUUVR — A sports loyalty program</div>
-              <div class="work-card-detail" data-i18n="work_muuvr_detail">Analysed the full product journey to identify experience gaps, then led design of the in-app shopping experience - creating a seamless handoff between the MUUVR app and a third-party purchase, shipping and returns flow.</div>
+              <div class="work-card-title" data-i18n="work_muuvr_title">MUUVR, A sports loyalty program</div>
+              <div class="work-card-detail" data-i18n="work_muuvr_detail">Analysed the full product journey to identify experience gaps, then designed a branded in-app shopping experience with a MUUVS rewards calculator and a monthly challenge system to drive engagement.</div>
             </div>
           </div>
 
@@ -1817,7 +1810,7 @@
                 <span class="work-card-tag">AI</span>
                 <span class="work-card-tag">2025</span>
               </div>
-              <div class="work-card-title">Siemens Healthineers — syngo.via</div>
+              <div class="work-card-title">Siemens Healthineers, syngo.via</div>
               <div class="work-card-detail" data-i18n="work_healthineers_detail">Leading UX design for the neurology and emergency modules of syngo.via, the global imaging and diagnostic platform. Designing new features to improve CT post-processing workflows for radiologists in time-critical contexts while exploring AI opportunities.</div>
             </div>
           </div>
@@ -1832,9 +1825,13 @@
                 <span class="work-card-tag">Industrial</span>
                 <span class="work-card-tag">SaaS</span>
                 <span class="work-card-tag">B2B</span>
-                <span class="work-card-tag">2024</span>
+                <span class="work-card-tag">UX Design</span>
+                <span class="work-card-tag">Product Design</span>
+                <span class="work-card-tag">Design Lead</span>
+                <span class="work-card-tag">Design System</span>
+                <span class="work-card-tag">2024–2025</span>
               </div>
-              <div class="work-card-title" data-i18n="work_mozak_title">Mozak — SaaS for pharma manufacturing</div>
+              <div class="work-card-title" data-i18n="work_mozak_title">Mozak, SaaS for industrial manufacturing</div>
               <div class="work-card-detail" data-i18n="work_mozak_detail">Joined when UX was nonexistent and handled solely by developers. Introduced design principles, built a design-driven mindset from scratch, and delivered a full redesign. Resulted in user satisfaction scores of 5.0/5 for interface and 4.8/5 for performance.</div>
             </div>
           </div>
@@ -1846,13 +1843,15 @@
             </div>
             <div class="work-card-info">
               <div class="work-card-tags">
-                <span class="work-card-tag">AI</span>
-                <span class="work-card-tag">Education</span>
-                <span class="work-card-tag">Conversational UX</span>
-                <span class="work-card-tag">2024</span>
+                <span class="work-card-tag">Higher Education</span>
+                <span class="work-card-tag">UX Teaching</span>
+                <span class="work-card-tag">Design Thinking</span>
+                <span class="work-card-tag">Curriculum Design</span>
+                <span class="work-card-tag">Conversational &amp; AI UX</span>
+                <span class="work-card-tag">2023–2025</span>
               </div>
-              <div class="work-card-title" data-i18n="work_hm_title">Hochschule München — AI Chatbot Design</div>
-              <div class="work-card-detail" data-i18n="work_hm_detail">Guided students through the end-to-end product design process for an AI chatbot - from research and concept through to prototype. Evaluated AI-assisted design tools and encouraged critical thinking around AI's role in the design process.</div>
+              <div class="work-card-title" data-i18n="work_hm_title">Hochschule München, Teaching UX, design thinking &amp; AI</div>
+              <div class="work-card-detail" data-i18n="work_hm_detail">Three semesters as a lecturer, running the Projektmodul seminar end-to-end – from curriculum design to coaching student teams through research, prototyping and a flagship AI chatbot project.</div>
             </div>
           </div>
 
@@ -1864,10 +1863,12 @@
             <div class="work-card-info">
               <div class="work-card-tags">
                 <span class="work-card-tag">MedTech</span>
-                <span class="work-card-tag">Product Discovery</span>
-                <span class="work-card-tag">2021–2023</span>
+                <span class="work-card-tag">Cross-Product Journey</span>
+                <span class="work-card-tag">UX Strategy</span>
+                <span class="work-card-tag">Service Design</span>
+                <span class="work-card-tag">2023</span>
               </div>
-              <div class="work-card-title" data-i18n="work_zeiss_title">Zeiss — Remote Surgery Application</div>
+              <div class="work-card-title" data-i18n="work_zeiss_title">Zeiss, Remote Surgery Treatment</div>
               <div class="work-card-detail" data-i18n="work_zeiss_detail">Led a product discovery project to design a remote control feature for the ZEISS Intrabeam 600 intraoperative radiotherapy system - enabling remote oncologists to participate in tumour treatment surgery from anywhere in the world.</div>
             </div>
           </div>
@@ -1887,9 +1888,7 @@
         <div class="process-left">
           <span class="section-label reveal" data-i18n="process_label">How I work</span>
           <h2 class="display-lg reveal reveal-delay-1" data-i18n="process_heading">A process built around <em style="color:var(--purple)">your</em> problem, not a template.</h2>
-          <p class="reveal reveal-delay-2" data-i18n="process_body">
-            Every engagement is different. But the thinking behind it isn't — I start with understanding before I start designing. Design is a team sport, and I play best when I'm embedded, not outsourced.
-          </p>
+          <p class="reveal reveal-delay-2" data-i18n="process_body">Every engagement is different. But the thinking behind it isn't, I start with understanding before I start designing. Design is a team sport, and I play best when I'm embedded, not outsourced.</p>
         </div>
 
       <div class="process-steps">
@@ -1940,7 +1939,7 @@
         </div>
 
       </div>
-      </div>
+      </div><!-- /process-layout -->
     </div>
   </section>
 
@@ -2053,6 +2052,7 @@
     <div class="container">
       <div class="about-grid">
 
+        <!-- Photo column -->
         <div class="about-image-wrap reveal">
           <div class="about-image">
             <div class="about-image-inner">
@@ -2068,18 +2068,13 @@
           </div>
         </div>
 
+        <!-- Text column -->
         <div class="about-content">
           <span class="section-label reveal" data-i18n="about_label">About me</span>
           <h2 class="display-lg reveal reveal-delay-1" data-i18n="about_heading">Design starts before <em>Figma.</em></h2>
-          <p class="reveal reveal-delay-2" data-i18n="about_p1">
-            With 15 years in Product Design and UX, my core focus is healthcare - but I've also worked across automotive, industrial and factory environments, which has sharpened my ability to design for complex workflows and specialist users.
-          </p>
-          <p class="reveal reveal-delay-2" data-i18n="about_p2">
-            I believe great design means connecting the dots between business, brand, product and service. And it starts long before prompting in Claude Code or pushing pixels in Figma - it starts with talking to people and actually understanding them.
-          </p>
-          <p class="reveal reveal-delay-2" data-i18n="about_p3">
-            If you need a designer who gets up to speed fast and drives the process with sharpness and craft - that's where I do my best work.
-          </p>
+          <p class="reveal reveal-delay-2" data-i18n="about_p1">With 15 years in Product Design and UX, my core focus is healthcare - but I've also worked across automotive, industrial and factory environments, which has sharpened my ability to design for complex workflows and specialist users.</p>
+          <p class="reveal reveal-delay-2" data-i18n="about_p2">I believe great design means connecting the dots between business, brand, product and service. And it starts long before prompting in Claude Code or pushing pixels in Figma - it starts with talking to people and actually understanding them.</p>
+          <p class="reveal reveal-delay-2" data-i18n="about_p3">If you need a designer who gets up to speed fast and drives the process with sharpness and craft - that's where I do my best work.</p>
         </div>
 
       </div>
@@ -2094,13 +2089,12 @@
       <div class="collab-header reveal">
         <span class="section-label" data-i18n="collab_label">How we would work together</span>
         <h2 class="display-lg" data-i18n="collab_heading">Open communication, visible <em>progress from day one.</em></h2>
-        <p class="collab-sub" data-i18n="collab_sub">
-          I work as a collaborative partner, not a vendor. Whether you need focused momentum on a specific challenge or a steady design presence over time - I adapt to where you are and what you actually need.
-        </p>
+        <p class="collab-sub" data-i18n="collab_sub">I work as a collaborative partner, not a vendor. Whether you need focused momentum on a specific challenge or a steady design presence over time - I adapt to where you are and what you actually need.</p>
       </div>
 
       <div class="collab-cards">
 
+        <!-- Card 1 - Product Discovery Workshop -->
         <div class="collab-card-light reveal">
           <div>
             <span class="collab-badge-light">Product Discovery Workshop</span>
@@ -2131,6 +2125,7 @@
           </ul>
         </div>
 
+        <!-- Card 2 - Design Partner -->
         <div class="collab-card-dark reveal reveal-delay-1">
           <div>
             <span class="collab-badge-dark">Design Partner</span>
@@ -2170,12 +2165,8 @@
   <section id="contact">
     <div class="container contact-inner">
       <span class="section-label reveal" data-i18n="contact_label">Let's work together</span>
-      <h2 class="contact-heading reveal reveal-delay-1" data-i18n="contact_heading">
-        Want to talk about a project or <em style="color:var(--purple)">topic?</em>
-      </h2>
-      <p class="reveal reveal-delay-2" data-i18n="contact_sub">
-        I'm currently available for freelance projects and long-term collaborations. Let's talk about your challenges.
-      </p>
+      <h2 class="contact-heading reveal reveal-delay-1" data-i18n="contact_heading">Want to talk about a project or <em style="color:var(--purple)">topic?</em></h2>
+      <p class="reveal reveal-delay-2" data-i18n="contact_sub">I'm currently available for freelance projects and long-term collaborations. Let's talk about your challenges.</p>
       <div class="contact-actions reveal reveal-delay-3">
         <button type="button" class="btn btn-purple" id="openEmailForm">
           <span data-i18n="contact_btn_primary">Send me a message</span>
@@ -2210,6 +2201,7 @@
       </button>
       <div class="cfm-layout">
 
+        <!-- Left: context -->
         <div class="cfm-left">
           <div class="cfm-deco-fill" aria-hidden="true"></div>
           <div class="cfm-deco-mint" aria-hidden="true"></div>
@@ -2218,7 +2210,7 @@
             <span data-i18n="modal_badge">Available for projects · 2026</span>
           </div>
           <h2 class="cfm-heading" id="cfmTitle" data-i18n="modal_heading">Send me a <em>message.</em></h2>
-          <p class="cfm-intro" data-i18n="modal_intro">No pitch, no pressure — just a first hello. Tell me what's on your mind.</p>
+          <p class="cfm-intro" data-i18n="modal_intro">No pitch, no pressure, just a first hello. Tell me what's on your mind.</p>
           <ul class="cfm-trust">
             <li>
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -2235,6 +2227,7 @@
           </ul>
         </div>
 
+        <!-- Right: form -->
         <div class="cfm-right">
           <form id="cfmForm" novalidate>
             <div class="cfm-fields">
@@ -2249,7 +2242,7 @@
                 </div>
               </div>
               <div class="cfm-field">
-                <label for="cfm-topic" data-i18n="modal_label_topic">What's your topic — or the problem you're working on?</label>
+                <label for="cfm-topic" data-i18n="modal_label_topic">What's your topic, or the problem you're working on?</label>
                 <textarea id="cfm-topic" name="topic" placeholder="Tell me what you're working on…" data-i18n-ph="modal_ph_topic"></textarea>
               </div>
               <div class="cfm-field">
@@ -2258,7 +2251,7 @@
               </div>
               <div class="cfm-field">
                 <label for="cfm-extra" data-i18n="modal_label_extra">Is there anything I should know beforehand?</label>
-                <textarea id="cfm-extra" name="extra" placeholder="Timeline, constraints, context — anything helps." data-i18n-ph="modal_ph_extra"></textarea>
+                <textarea id="cfm-extra" name="extra" placeholder="Timeline, constraints, context, anything helps." data-i18n-ph="modal_ph_extra"></textarea>
               </div>
               <label class="cfm-check" for="cfm-consent">
                 <input type="checkbox" id="cfm-consent" name="consent" />
@@ -2302,6 +2295,7 @@
   (function () {
     'use strict';
 
+    /* ── 1. Nav: scroll state ─────────────────────────────────────── */
     const navbar = document.getElementById('navbar');
     function updateNav() {
       if (window.scrollY > 40) {
@@ -2313,6 +2307,7 @@
     window.addEventListener('scroll', updateNav, { passive: true });
     updateNav();
 
+    /* ── 2. Mobile nav toggle ─────────────────────────────────────── */
     const navToggle = document.getElementById('navToggle');
     const navMobile = document.getElementById('navMobile');
     navToggle.addEventListener('click', function () {
@@ -2320,6 +2315,7 @@
       navToggle.classList.toggle('open', isOpen);
       navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
+    // Close on link click
     navMobile.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
         navMobile.classList.remove('open');
@@ -2328,6 +2324,7 @@
       });
     });
 
+    /* ── 3. Scrollspy ─────────────────────────────────────────────── */
     const sections = document.querySelectorAll('section[id]');
     const navLinksAll = document.querySelectorAll('#navLinks a, #navMobile a');
     function setActiveLink() {
@@ -2350,6 +2347,7 @@
     window.addEventListener('scroll', setActiveLink, { passive: true });
     setActiveLink();
 
+    /* ── 4. Scroll reveal ─────────────────────────────────────────── */
     const revealEls = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver(function (entries) {
@@ -2362,14 +2360,17 @@
       }, { threshold: 0.12 });
       revealEls.forEach(function (el) { observer.observe(el); });
     } else {
+      // Fallback for no IntersectionObserver
       revealEls.forEach(function (el) { el.classList.add('visible'); });
     }
 
+    /* ── 5. Work strip: drag + arrows + auto-advance ──────────────── */
     (function () {
       const wrap = document.getElementById('workStrip');
       if (!wrap) return;
       const dotsContainer = document.getElementById('workDots');
 
+      // Build dots
       const cards = Array.from(wrap.querySelectorAll('.work-card'));
       cards.forEach(function (_, i) {
         const dot = document.createElement('button');
@@ -2394,6 +2395,7 @@
         return slide ? slide.offsetWidth + 20 : 820;
       }
 
+      // Drag to scroll
       let isDown = false, startX, scrollLeft, hasDragged = false;
       wrap.addEventListener('mousedown', function (e) {
         isDown = true;
@@ -2415,6 +2417,7 @@
 
       wrap.addEventListener('scroll', updateDots, { passive: true });
 
+      // Auto-advance
       let autoTimer;
       function advance() {
         const atEnd = wrap.scrollLeft + wrap.clientWidth >= wrap.scrollWidth - 2;
@@ -2435,6 +2438,7 @@
       wrap.addEventListener('touchstart', function () { clearInterval(autoTimer); }, { passive: true });
       wrap.addEventListener('touchend', function () { resetAuto(); }, { passive: true });
 
+      // Custom cursor: left / right arrow on card hover
       const cursor = document.getElementById('galleryCursor');
       const cursorLeft  = document.getElementById('galleryCursorLeft');
       const cursorRight = document.getElementById('galleryCursorRight');
@@ -2445,7 +2449,7 @@
         cursor.style.left = e.clientX + 'px';
         cursor.style.top  = e.clientY + 'px';
 
-        const card  = e.target.closest('.work-slide');
+        const card  = e.target.closest('.work-card');
         const arrow = e.target.closest('.work-card-arrow');
         if (card && !arrow) {
           const newIsRight = e.clientX > window.innerWidth / 2;
@@ -2465,7 +2469,8 @@
       });
 
       wrap.addEventListener('click', function (e) {
-        if (e.target.closest('.work-card-arrow')) return;
+        if (e.target.closest('.work-card-arrow')) return; // let the link navigate
+        if (e.target.closest('.work-card-cta')) return; // let the link navigate
         if (hasDragged) return;
         const card = e.target.closest('.work-slide');
         if (!card) return;
@@ -2473,6 +2478,7 @@
         resetAuto();
       });
 
+      // Start only when visible; reset to first card when scrolled away
       let autoStarted = false;
       const stripObserver = new IntersectionObserver(function (entries) {
         if (entries[0].isIntersecting) {
@@ -2490,6 +2496,7 @@
       stripObserver.observe(wrap);
     })();
 
+    /* ── 6. Back to top ───────────────────────────────────────────── */
     const btt = document.getElementById('back-to-top');
     window.addEventListener('scroll', function () {
       if (window.scrollY > 400) {
@@ -2502,6 +2509,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+    /* ── 7. Contact form modal ───────────────────────────────────── */
     const cfmModal   = document.getElementById('contactFormModal');
     const cfmClose   = document.getElementById('cfmClose');
     const cfmForm    = document.getElementById('cfmForm');
@@ -2519,6 +2527,7 @@
 
     document.getElementById('openEmailForm').addEventListener('click', openFormModal);
 
+    // All [data-contact-modal] links (nav, hero) open the form modal
     document.querySelectorAll('[data-contact-modal]').forEach(function (el) {
       el.addEventListener('click', function (e) {
         e.preventDefault();
@@ -2577,6 +2586,7 @@
   })();
 
   lucide.createIcons();
+
   </script>
 
 </body>

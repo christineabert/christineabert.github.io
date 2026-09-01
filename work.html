@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Studies, Christina Ebert</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Reset ─────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ─── Tokens ─────────────────────────────────────────────────────── */
+    :root {
+      --purple:      #7c6fff;
+      --purple-dark: #4a3fff;
+      --purple-pale: #f0eeff;
+      --mint:        #2BCB9B;
+      --mint-pale:   #e4f8f1;
+      --ink:         #0d0c1d;
+      --ink-mid:     #3d3b52;
+      --ink-light:   #8e8ba8;
+      --cream:       #faf9f7;
+      --cream-dark:  #f2efe8;
+      --white:       #ffffff;
+      --serif:       'Playfair Display', Georgia, serif;
+      --sans:        'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ─── Layout ─────────────────────────────────────────────────────── */
+    .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 3rem; }
+
+    /* ─── Typography ─────────────────────────────────────────────────── */
+    .section-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 1rem;
+    }
+
+    /* ─── Scroll reveal ──────────────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.08s; }
+    .reveal-delay-2 { transition-delay: 0.16s; }
+    .reveal-delay-3 { transition-delay: 0.24s; }
+    .reveal-delay-4 { transition-delay: 0.32s; }
+    .reveal-delay-5 { transition-delay: 0.40s; }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       PASSWORD GATE
+       ═══════════════════════════════════════════════════════════════════ */
+    #pw-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      transition: opacity 0.5s ease;
+    }
+    #pw-gate.unlocking { opacity: 0; pointer-events: none; }
+    #pw-gate.hidden    { display: none; }
+
+    .pw-deco-1 {
+      position: absolute; right: -6%; top: -15%;
+      width: 40%; aspect-ratio: 1; border-radius: 50%;
+      background: var(--purple-pale); pointer-events: none;
+    }
+    .pw-deco-2 {
+      position: absolute; left: -4%; bottom: 5%;
+      width: 22%; aspect-ratio: 1; border-radius: 50%;
+      background: var(--mint-pale); pointer-events: none;
+    }
+    .pw-card {
+      position: relative; z-index: 1;
+      background: var(--white); border-radius: 28px;
+      padding: 3rem 3.5rem; max-width: 440px; width: 100%;
+      box-shadow: 0 32px 80px rgba(13,12,29,0.12), 0 0 0 1px rgba(13,12,29,0.06);
+      text-align: center;
+    }
+    .pw-logo        { margin: 0 auto 2.25rem; height: 56px; width: auto; }
+    .pw-heading     { font-family: var(--serif); font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 0.6rem; line-height: 1.1; }
+    .pw-heading em  { font-style: italic; color: var(--purple); }
+    .pw-sub         { font-size: 0.88rem; line-height: 1.65; color: var(--ink-light); margin-bottom: 2rem; }
+    .pw-input {
+      width: 100%; padding: 0.85rem 1.1rem; border: 1.5px solid rgba(13,12,29,0.15);
+      border-radius: 12px; font-family: var(--sans); font-size: 0.95rem; color: var(--ink);
+      background: var(--cream); outline: none; transition: border-color 0.2s, background 0.2s;
+      letter-spacing: 0.1em; margin-bottom: 0.75rem; display: block;
+    }
+    .pw-input:focus  { border-color: var(--purple); background: var(--white); }
+    .pw-input.error  { border-color: #e05252; }
+    .pw-error        { font-size: 0.78rem; color: #e05252; margin-bottom: 0.85rem; display: none; text-align: left; }
+    .pw-error.visible { display: block; }
+    .pw-btn {
+      width: 100%; padding: 0.9rem 1.75rem; border-radius: 100px;
+      font-size: 0.875rem; font-weight: 600; font-family: var(--sans);
+      background: var(--ink); color: var(--white); border: none; cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .pw-btn:hover { opacity: 0.82; transform: translateY(-2px); }
+
+    @keyframes pw-shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60%  { transform: translateX(-7px); }
+      40%, 80%  { transform: translateX(7px); }
+    }
+    .pw-input.shake { animation: pw-shake 0.4s ease; }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       NAV
+       ═══════════════════════════════════════════════════════════════════ */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      padding: 0.75rem 0;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(250,249,247,0.94);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 rgba(13,12,29,0.08);
+    }
+    .nav-inner    { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .nav-logo     { display: flex; align-items: center; flex-shrink: 0; }
+    .nav-logo img { height: 76px; width: auto; display: block; }
+    .nav-links    { display: flex; align-items: center; gap: 2.25rem; flex: 1; justify-content: center; }
+    .nav-links a  { font-size: 0.875rem; font-weight: 500; color: var(--ink-mid); transition: color 0.2s; position: relative; padding-bottom: 2px; }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
+      height: 2px; background: var(--purple); border-radius: 2px;
+      transform: scaleX(0); transform-origin: left; transition: transform 0.25s ease;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-link-current {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.875rem; font-weight: 500; color: var(--ink);
+      position: relative; padding-bottom: 2px;
+    }
+    .nav-link-current::after {
+      content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
+      height: 2px; background: var(--purple); border-radius: 2px;
+    }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.85rem 1.75rem; border-radius: 100px;
+      background: var(--ink); color: var(--white);
+      font-size: 0.875rem; font-weight: 600;
+      transition: opacity 0.2s, transform 0.2s; white-space: nowrap; flex-shrink: 0;
+    }
+    .nav-cta:hover { opacity: 0.82; transform: translateY(-2px); }
+    .nav-toggle      { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; flex-shrink: 0; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform 0.25s ease, opacity 0.25s ease; }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-mobile-panel {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      background: rgba(250,249,247,0.97); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(13,12,29,0.07); padding: 1.25rem 0 1.75rem;
+      box-shadow: 0 12px 32px rgba(13,12,29,0.08);
+    }
+    .nav-mobile-panel.open { display: block; }
+    .nav-mobile-panel a   { display: block; padding: 0.85rem 3rem; font-size: 1rem; font-weight: 500; color: var(--ink-mid); transition: color 0.2s; }
+    .nav-mobile-panel a:hover { color: var(--ink); }
+    .nav-mobile-current-label {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.85rem 3rem; font-size: 1rem; font-weight: 600; color: var(--ink);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       PAGE HEADER
+       ═══════════════════════════════════════════════════════════════════ */
+    .page-header {
+      padding: 9rem 0 4rem;
+      position: relative; overflow: hidden;
+    }
+
+    .page-header-inner { position: relative; z-index: 1; }
+    .page-header h1 {
+      font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 700; line-height: 1.15; letter-spacing: -0.015em;
+      color: var(--ink); margin-bottom: 1.1rem;
+    }
+    .page-header h1 em  { font-style: italic; color: var(--purple); font-weight: 600; }
+    .page-header-sub    { font-size: 1rem; line-height: 1.72; color: var(--ink-mid); max-width: 560px; }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       FILTER BAR
+       ═══════════════════════════════════════════════════════════════════ */
+    .filter-section { padding: 0 0 3rem; }
+
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .filter-bar-dropdowns {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+    .filter-bar-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-shrink: 0;
+      margin-left: auto;
+    }
+    .filter-count {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--ink-light);
+      white-space: nowrap;
+    }
+    .filter-count strong { color: var(--ink); font-weight: 600; }
+    .filter-reset {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--purple);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--sans);
+      padding: 0;
+      transition: opacity 0.2s;
+      opacity: 0;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .filter-reset.visible { opacity: 1; pointer-events: auto; }
+    .filter-reset:hover   { opacity: 0.7; }
+
+    /* Dropdown trigger */
+    .filter-dropdown { position: relative; }
+    .filter-dropdown-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1rem 0.6rem 1.15rem;
+      border-radius: 100px;
+      border: 1.5px solid rgba(13,12,29,0.14);
+      background: var(--white);
+      color: var(--ink-mid);
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color 0.18s, color 0.18s, background 0.18s;
+      white-space: nowrap;
+      user-select: none;
+    }
+    .filter-dropdown-btn:hover {
+      border-color: var(--purple);
+      color: var(--purple);
+    }
+    .filter-dropdown-btn.active {
+      border-color: var(--purple);
+      background: var(--purple);
+      color: var(--white);
+    }
+    .filter-dropdown-chevron {
+      display: flex; align-items: center;
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+      opacity: 0.6;
+    }
+    .filter-dropdown-btn.active .filter-dropdown-chevron { opacity: 1; }
+    .filter-dropdown.open .filter-dropdown-chevron { transform: rotate(180deg); }
+
+    /* Dropdown panel */
+    .filter-dropdown-panel {
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      left: 0;
+      z-index: 100;
+      background: var(--white);
+      border-radius: 16px;
+      border: 1px solid rgba(13,12,29,0.08);
+      box-shadow: 0 12px 40px rgba(13,12,29,0.12), 0 2px 8px rgba(13,12,29,0.06);
+      padding: 0.4rem;
+      min-width: 210px;
+      opacity: 0;
+      transform: translateY(-6px);
+      pointer-events: none;
+      transition: opacity 0.16s ease, transform 0.16s ease;
+    }
+    .filter-dropdown.open .filter-dropdown-panel {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+
+    /* Option rows */
+    .filter-option {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.6rem 0.85rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.81rem;
+      font-weight: 500;
+      color: var(--ink-mid);
+      transition: background 0.14s;
+      user-select: none;
+    }
+    .filter-option:hover { background: var(--purple-pale); color: var(--ink); }
+    .filter-option.selected { color: var(--purple); font-weight: 600; }
+    .filter-option-dot {
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+      border: 1.5px solid rgba(13,12,29,0.2);
+      transition: border-color 0.14s, background 0.14s;
+    }
+    .filter-option.selected .filter-option-dot {
+      background: var(--purple);
+      border-color: var(--purple);
+    }
+    .filter-option-divider {
+      height: 1px;
+      background: rgba(13,12,29,0.07);
+      margin: 0.3rem 0.5rem;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       WORK GRID
+       ═══════════════════════════════════════════════════════════════════ */
+    .work-section { padding-bottom: 6rem; }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+    }
+
+    .work-grid-card {
+      background: var(--white);
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(13,12,29,0.06);
+      transition: box-shadow 0.3s ease, transform 0.3s ease, opacity 0.25s ease;
+      cursor: default;
+    }
+    .work-grid-card--link {
+      display: block;
+      cursor: pointer;
+      color: inherit;
+    }
+    .work-grid-card--link .work-grid-cta {
+      margin-top: 1rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--purple);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: gap 0.2s ease;
+    }
+    .work-grid-card--link:hover .work-grid-cta { gap: 0.55rem; }
+    .work-grid-card:hover {
+      box-shadow: 0 16px 48px rgba(13,12,29,0.12);
+      transform: translateY(-4px);
+    }
+    .work-grid-card.filtered-out {
+      display: none;
+    }
+
+    /* Card media */
+    .work-grid-media {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      position: relative;
+      overflow: hidden;
+      background: #111;
+    }
+    .work-grid-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      transition: transform 0.55s ease;
+    }
+    .work-grid-card:hover .work-grid-bg { transform: scale(1.05); }
+    .work-grid-video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+    }
+    .work-grid-card:hover .work-grid-video { transform: scale(1.05); }
+
+    /* Card info */
+    .work-grid-info {
+      padding: 1.5rem 1.75rem 1.75rem;
+    }
+    .work-grid-tags {
+      display: flex; flex-wrap: wrap; gap: 0.35rem;
+      margin-bottom: 0.85rem;
+    }
+    .work-grid-tag {
+      font-size: 0.6rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--ink-mid);
+      border: 1px solid rgba(13,12,29,0.14); border-radius: 100px;
+      padding: 0.22rem 0.65rem;
+    }
+    .work-grid-title {
+      font-family: var(--serif); font-size: 1.15rem; font-weight: 600;
+      color: var(--ink); line-height: 1.25; margin-bottom: 0.65rem;
+    }
+    .work-grid-detail {
+      font-size: 0.83rem; line-height: 1.68; color: var(--ink-mid);
+      display: -webkit-box; -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical; overflow: hidden;
+    }
+
+    /* Empty state */
+    .work-empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 5rem 2rem;
+      display: none;
+    }
+    .work-empty.visible { display: block; }
+    .work-empty-icon {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--purple-pale);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.25rem;
+      color: var(--purple);
+    }
+    .work-empty p {
+      font-size: 0.95rem; color: var(--ink-mid);
+      margin-bottom: 1.25rem; line-height: 1.6;
+    }
+    .work-empty-reset {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.7rem 1.5rem; border-radius: 100px;
+      border: 1.5px solid rgba(13,12,29,0.18); color: var(--ink);
+      font-size: 0.8rem; font-weight: 600; font-family: var(--sans);
+      background: none; cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .work-empty-reset:hover { border-color: var(--ink); transform: translateY(-1px); }
+
+    /* ─── Footer ─────────────────────────────────────────────────────── */
+    footer { background: var(--white); padding: 2rem 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: center; gap: 2.5rem; }
+    .footer-links { display: flex; align-items: center; gap: 2rem; }
+    .footer-link  { font-size: 0.85rem; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
+    .footer-link:hover { color: var(--ink); }
+    .footer-link-underline { text-decoration: underline; }
+
+    /* ─── Back to top ────────────────────────────────────────────────── */
+    #back-to-top {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 300;
+      width: 44px; height: 44px; border-radius: 50%; background: var(--ink);
+      color: var(--white); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease, background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px rgba(13,12,29,0.22);
+    }
+    #back-to-top.visible     { opacity: 1; pointer-events: auto; }
+    #back-to-top:hover { background: var(--purple); transform: translateY(-2px); }
+
+    /* ─── Responsive ─────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .work-grid { gap: 1.25rem; }
+    }
+    @media (max-width: 768px) {
+      .container    { padding: 0 1.5rem; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle   { display: flex; }
+      .work-grid    { grid-template-columns: 1fr; }
+      .filter-bar         { gap: 0.5rem; }
+      .filter-bar-dropdowns { gap: 0.5rem; }
+      .filter-bar-meta    { margin-left: 0; }
+      .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
+      .footer-links { flex-direction: column; gap: 0.75rem; }
+      .pw-card      { padding: 2.25rem 1.75rem; }
+      .pw-heading   { font-size: 1.6rem; }
+    }
+    @media (max-width: 480px) {
+      .work-grid-media { aspect-ratio: 4/3; }
+    }
+  </style>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <!-- ─── Password Gate ─────────────────────────────────────────────── -->
+  <div id="pw-gate">
+    <div class="pw-deco-1" aria-hidden="true"></div>
+    <div class="pw-deco-2" aria-hidden="true"></div>
+    <div class="pw-card">
+      <img class="pw-logo" src="images/LogoChristina.svg" alt="Christina Ebert" />
+      <h1 class="pw-heading">Protected <em>Case Studies.</em></h1>
+      <p class="pw-sub">This page contains confidential project insights.<br/>Please enter the access password.</p>
+      <input class="pw-input" type="password" id="pwInput" placeholder="Password" autocomplete="current-password" />
+      <p class="pw-error" id="pwError">Wrong password – please try again.</p>
+      <button class="pw-btn" id="pwSubmit">Unlock access</button>
+    </div>
+  </div>
+
+
+  <!-- ─── Nav ──────────────────────────────────────────────────────── -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo"><img src="images/LogoChristina.svg" alt="Christina Ebert" /></a>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html#work" data-i18n="nav_work">Work</a></li>
+          <li><a href="index.html#process" data-i18n="nav_process">Process</a></li>
+          <li><a href="index.html#testimonials" data-i18n="nav_testimonials">Testimonials</a></li>
+          <li><a href="index.html#about" data-i18n="nav_about">About</a></li>
+          <li><a href="index.html#collaboration" data-i18n="nav_collab">Work with me</a></li>
+          <li>
+            <span class="nav-link-current">
+              <i data-lucide="lock" width="12" height="12"></i>
+              Case Studies
+            </span>
+          </li>
+        </ul>
+
+        <a href="index.html#contact" class="nav-cta" data-i18n="nav_cta">Let's chat</a>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <div class="nav-mobile-panel" id="navMobile">
+        <a href="index.html#work" data-i18n="nav_work">Work</a>
+        <a href="index.html#process" data-i18n="nav_process">Process</a>
+        <a href="index.html#testimonials" data-i18n="nav_testimonials">Testimonials</a>
+        <a href="index.html#about" data-i18n="nav_about">About</a>
+        <a href="index.html#collaboration" data-i18n="nav_collab">Work with me</a>
+        <span class="nav-mobile-current-label">
+          <i data-lucide="lock" width="13" height="13"></i>
+          Case Studies
+        </span>
+        <a href="index.html#contact" data-i18n="nav_cta">Let's chat</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ─── Page header ──────────────────────────────────────────────── -->
+  <div class="page-header">
+<div class="container">
+      <div class="page-header-inner">
+        <span class="section-label" data-i18n="work_label">Case Studies</span>
+        <h1 data-i18n="page_heading">Insights into my <em>work.</em></h1>
+        <p class="page-header-sub" data-i18n="page_sub">From MedTech and Healthcare to SaaS and Education – a look behind the scenes.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ─── Filter bar ───────────────────────────────────────────────── -->
+  <div class="filter-section">
+    <div class="container">
+      <div class="filter-bar" role="group" aria-label="Filter projects">
+
+        <div class="filter-bar-dropdowns">
+
+          <!-- Industry dropdown -->
+          <div class="filter-dropdown" id="industryDropdown">
+            <button class="filter-dropdown-btn" id="industryBtn" aria-haspopup="listbox" aria-expanded="false">
+              <span id="industryLabel" data-i18n="filter_industry">Industry</span>
+              <span class="filter-dropdown-chevron">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </button>
+            <div class="filter-dropdown-panel" id="industryPanel" role="listbox">
+              <div class="filter-option selected" data-value="" role="option" aria-selected="true">
+                <span class="filter-option-dot"></span>
+                <span data-i18n="filter_all">All</span>
+              </div>
+              <div class="filter-option-divider"></div>
+              <div class="filter-option" data-value="healthtech" role="option">
+                <span class="filter-option-dot"></span>
+                <span data-i18n="filter_healthtech">Healthcare / MedTech</span>
+              </div>
+              <div class="filter-option" data-value="fitness" role="option">
+                <span class="filter-option-dot"></span>
+                <span data-i18n="filter_fitness">Fitness &amp; Health</span>
+              </div>
+              <div class="filter-option" data-value="industrial" role="option">
+                <span class="filter-option-dot"></span>
+                <span data-i18n="filter_industrial">Industrial</span>
+              </div>
+              <div class="filter-option" data-value="saas" role="option">
+                <span class="filter-option-dot"></span>
+                <span data-i18n="filter_saas">B2B / SaaS</span>
+              </div>
+              <div class="filter-option" data-value="education" role="option">
+                <span class="filter-option-dot"></span>
+                <span data-i18n="filter_education">Education</span>
+              </div>
+              <div class="filter-option" data-value="automotive" role="option">
+                <span class="filter-option-dot"></span>
+                <span data-i18n="filter_automotive">Automotive</span>
+              </div>
+              <div class="filter-option" data-value="media" role="option">
+                <span class="filter-option-dot"></span>
+                <span data-i18n="filter_media">Media &amp; Entertainment</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Design phase dropdown -->
+          <div class="filter-dropdown" id="phaseDropdown">
+            <button class="filter-dropdown-btn" id="phaseBtn" aria-haspopup="listbox" aria-expanded="false">
+              <span id="phaseLabel" data-i18n="filter_phase">Design Phase</span>
+              <span class="filter-dropdown-chevron">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </button>
+            <div class="filter-dropdown-panel" id="phasePanel" role="listbox">
+              <div class="filter-option selected" data-value="" role="option" aria-selected="true">
+                <span class="filter-option-dot"></span>
+                <span data-i18n="filter_all">All</span>
+              </div>
+              <div class="filter-option-divider"></div>
+              <div class="filter-option" data-value="discovery" role="option">
+                <span class="filter-option-dot"></span>
+                <span data-i18n="filter_discovery">Product Discovery</span>
+              </div>
+              <div class="filter-option" data-value="ux-design" role="option">
+                <span class="filter-option-dot"></span>
+                <span data-i18n="filter_ux">UX Design</span>
+              </div>
+              <div class="filter-option" data-value="design-lead" role="option">
+                <span class="filter-option-dot"></span>
+                <span data-i18n="filter_lead">Design Lead</span>
+              </div>
+              <div class="filter-option" data-value="product-design" role="option">
+                <span class="filter-option-dot"></span>
+                <span data-i18n="filter_product">Product Design</span>
+              </div>
+              <div class="filter-option" data-value="ai" role="option">
+                <span class="filter-option-dot"></span>
+                <span data-i18n="filter_ai">AI &amp; Innovation</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="filter-bar-meta">
+          <span class="filter-count" id="filterCount"><strong>7</strong> Projects</span>
+          <button class="filter-reset" id="filterReset" aria-label="Reset filters" data-i18n="filter_reset_btn">Reset filters</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ─── Work grid ─────────────────────────────────────────────────── -->
+  <div class="work-section">
+    <div class="container">
+      <div class="work-grid" id="workGrid">
+
+        <!-- ── 1 · MUUVR ────────────────────────────────────────────── -->
+        <a href="muuvr.html" class="work-grid-card work-grid-card--link reveal reveal-delay-2"
+             data-industries="fitness"
+             data-phases="ux-design product-design">
+          <div class="work-grid-media">
+            <video class="work-grid-video" src="images/muuvr-hero.mp4"
+                   autoplay muted loop playsinline poster="images/muuvr-poster.jpg"></video>
+          </div>
+          <div class="work-grid-info">
+            <div class="work-grid-tags">
+              <span class="work-grid-tag">Health &amp; Fitness</span>
+              <span class="work-grid-tag">Loyalty</span>
+              <span class="work-grid-tag">2025</span>
+            </div>
+            <div class="work-grid-title" data-i18n="work_muuvr_title">MUUVR, A sports loyalty program</div>
+            <div class="work-grid-detail" data-i18n="work_muuvr_detail">Analysed the full product journey to identify experience gaps, then led design of the in-app shopping experience – creating a seamless handoff between the MUUVR app and a third-party purchase, shipping and returns flow.</div>
+            <div class="work-grid-cta" data-i18n="work_muuvr_cta">Read case study <span>→</span></div>
+          </div>
+        </a>
+
+        <!-- ── 2 · Mozak ─────────────────────────────────────────────── -->
+        <a href="mozak.html" class="work-grid-card work-grid-card--link reveal reveal-delay-3"
+             data-industries="industrial saas"
+             data-phases="product-design design-lead">
+          <div class="work-grid-media">
+            <div class="work-grid-bg" style="background-image: url('images/mozak-acc04.png'); background-color:#071a10;"></div>
+          </div>
+          <div class="work-grid-info">
+            <div class="work-grid-tags">
+              <span class="work-grid-tag">Industrial</span>
+              <span class="work-grid-tag">SaaS</span>
+              <span class="work-grid-tag">B2B</span>
+              <span class="work-grid-tag">2024</span>
+            </div>
+            <div class="work-grid-title" data-i18n="work_mozak_title">Mozak, SaaS for industrial manufacturing</div>
+            <div class="work-grid-detail" data-i18n="work_mozak_detail">Joined when UX was nonexistent and handled solely by developers. Introduced design principles, built a design-driven mindset from scratch, and delivered a full redesign. Resulted in user satisfaction scores of 5.0/5 for interface and 4.8/5 for performance.</div>
+            <div class="work-grid-cta" data-i18n="work_mozak_cta">Read case study <span>→</span></div>
+          </div>
+        </a>
+
+        <!-- ── 3 · Hochschule München ────────────────────────────────── -->
+        <a href="hochschule.html" class="work-grid-card work-grid-card--link reveal reveal-delay-4"
+             data-industries="education"
+             data-phases="product-design ai">
+          <div class="work-grid-media">
+            <div class="work-grid-bg" style="background-image: url('images/hochschule-hero.png'); background-color:#0a1628;"></div>
+          </div>
+          <div class="work-grid-info">
+            <div class="work-grid-tags">
+              <span class="work-grid-tag">Education</span>
+              <span class="work-grid-tag">UX Teaching</span>
+              <span class="work-grid-tag">Design Thinking</span>
+              <span class="work-grid-tag">2023–2025</span>
+            </div>
+            <div class="work-grid-title" data-i18n="work_hm_title">Hochschule München, Teaching UX &amp; Design Thinking</div>
+            <div class="work-grid-detail" data-i18n="work_hm_detail">Three semesters as a lecturer, running the Projektmodul seminar end-to-end – from curriculum design to coaching student teams through research, prototyping and a flagship AI chatbot project.</div>
+            <div class="work-grid-cta" data-i18n="work_hm_cta">Read case study <span>→</span></div>
+          </div>
+        </a>
+
+        <!-- ── 4 · Zeiss ─────────────────────────────────────────────── -->
+        <a href="intrabeam600.html" class="work-grid-card work-grid-card--link reveal reveal-delay-5"
+             data-industries="healthtech"
+             data-phases="discovery ux-design">
+          <div class="work-grid-media">
+            <div class="work-grid-bg" style="background-image: url('images/zeiss-hero.jpg'); background-color:#0a1628;"></div>
+          </div>
+          <div class="work-grid-info">
+            <div class="work-grid-tags">
+              <span class="work-grid-tag">MedTech</span>
+              <span class="work-grid-tag">Cross-Product Journey</span>
+              <span class="work-grid-tag">UX Strategy</span>
+              <span class="work-grid-tag">Service Design</span>
+              <span class="work-grid-tag">2023</span>
+            </div>
+            <div class="work-grid-title" data-i18n="work_zeiss_title">Zeiss, Remote Surgery Application</div>
+            <div class="work-grid-detail" data-i18n="work_zeiss_detail">Led a product discovery project to design a remote control feature for the ZEISS Intrabeam 600 intraoperative radiotherapy system – enabling remote oncologists to participate in tumour treatment surgery from anywhere in the world.</div>
+            <div class="work-grid-cta" data-i18n="work_zeiss_cta">Read case study <span>→</span></div>
+          </div>
+        </a>
+
+        <!-- ── 5 · BMW ───────────────────────────────────────────────── -->
+        <a href="bmw.html" class="work-grid-card work-grid-card--link reveal reveal-delay-1"
+             data-industries="automotive"
+             data-phases="ux-design discovery">
+          <div class="work-grid-media">
+            <div class="work-grid-bg" style="background-image: url('images/BMW-Hero02.png'); background-color:#0a1628;"></div>
+          </div>
+          <div class="work-grid-info">
+            <div class="work-grid-tags">
+              <span class="work-grid-tag">Automotive</span>
+              <span class="work-grid-tag">Apple Watch</span>
+              <span class="work-grid-tag">iOS</span>
+              <span class="work-grid-tag">2022</span>
+            </div>
+            <div class="work-grid-title" data-i18n="work_bmw_title">BMW, Apple Watch Companion App</div>
+            <div class="work-grid-detail" data-i18n="work_bmw_detail">Designed an Apple Watch companion app for BMW in a focused 5-week sprint, from competitive benchmarking and UX pattern research through to MVP design and full accessibility compliance.</div>
+            <div class="work-grid-cta" data-i18n="work_bmw_cta">Read case study <span>→</span></div>
+          </div>
+        </a>
+
+        <!-- ── 6 · ProSieben ─────────────────────────────────────────── -->
+        <a href="prosieben.html" class="work-grid-card work-grid-card--link reveal reveal-delay-2"
+             data-industries="media"
+             data-phases="design-lead product-design">
+          <div class="work-grid-media">
+            <div class="work-grid-bg" style="background-image: url('images/BigScreenProducts.png'); background-color:#1a0a28;"></div>
+          </div>
+          <div class="work-grid-info">
+            <div class="work-grid-tags">
+              <span class="work-grid-tag">Media &amp; Entertainment</span>
+              <span class="work-grid-tag">TV · Big Screen</span>
+              <span class="work-grid-tag">Design Lead</span>
+              <span class="work-grid-tag">2019–2020</span>
+            </div>
+            <div class="work-grid-title" data-i18n="work_p7_title">ProSieben, Big Screen UX Redesign</div>
+            <div class="work-grid-detail" data-i18n="work_p7_detail">Led a team of 8 designers to establish a coherent UX across all seven.one TV products, introducing Story Highlights that doubled short-form video views and reshaping the Big Screen experience for a platform shifting from TV to streaming.</div>
+            <div class="work-grid-cta" data-i18n="work_p7_cta">Read case study <span>→</span></div>
+          </div>
+        </a>
+
+        <!-- Empty state -->
+        <div class="work-empty" id="workEmpty">
+          <div class="work-empty-icon">
+            <i data-lucide="search-x" width="22" height="22"></i>
+          </div>
+          <p data-i18n="filter_empty">No projects match this combination.<br/>Try a different filter.</p>
+          <button class="work-empty-reset" id="emptyReset" data-i18n="filter_reset_btn">Reset filters</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ─── Footer ───────────────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-links">
+          <span class="footer-link">© 2026 Christina Ebert</span>
+          <a href="impressum.html" class="footer-link" data-i18n="footer_legal">Legal Notice</a>
+          <a href="datenschutz.html" class="footer-link" data-i18n="footer_privacy">Privacy Policy</a>
+          <span class="footer-link" data-i18n="footer_made">Made with 💜 and <a href="https://claude.ai/code" class="footer-link footer-link-underline">Claude Code</a></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── Back to top ───────────────────────────────────────────────── -->
+  <button id="back-to-top" aria-label="Back to top">
+    <i data-lucide="arrow-up" width="18" height="18"></i>
+  </button>
+
+
+  <!-- ─── Scripts ──────────────────────────────────────────────────── -->
+  <script>
+  (function () {
+    'use strict';
+
+    /* ── Password gate ─────────────────────────────────────────────── */
+    // TO CHANGE THE PASSWORD: update this string before publishing
+    var CORRECT_PASSWORD = 'portfolio2026';
+    var STORAGE_KEY = 'ce_portfolio_unlocked';
+
+    var gate     = document.getElementById('pw-gate');
+    var pwInput  = document.getElementById('pwInput');
+    var pwSubmit = document.getElementById('pwSubmit');
+    var pwError  = document.getElementById('pwError');
+
+    function unlock() {
+      sessionStorage.setItem(STORAGE_KEY, '1');
+      gate.classList.add('unlocking');
+      setTimeout(function () { gate.classList.add('hidden'); }, 520);
+    }
+
+    if (sessionStorage.getItem(STORAGE_KEY) === '1') { gate.classList.add('hidden'); }
+
+    function tryUnlock() {
+      if (pwInput.value.trim() === CORRECT_PASSWORD) {
+        pwError.classList.remove('visible');
+        pwInput.classList.remove('error');
+        unlock();
+      } else {
+        pwInput.classList.add('error');
+        pwError.classList.add('visible');
+        pwInput.classList.remove('shake');
+        void pwInput.offsetWidth;
+        pwInput.classList.add('shake');
+      }
+    }
+    pwSubmit.addEventListener('click', tryUnlock);
+    pwInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') tryUnlock(); });
+    pwInput.addEventListener('input', function () {
+      pwInput.classList.remove('error');
+      pwError.classList.remove('visible');
+    });
+
+    /* ── Nav ──────────────────────────────────────────────────────── */
+    var navbar    = document.getElementById('navbar');
+    var navToggle = document.getElementById('navToggle');
+    var navMobile = document.getElementById('navMobile');
+
+    window.addEventListener('scroll', function () {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+
+    navToggle.addEventListener('click', function () {
+      var isOpen = navMobile.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    navMobile.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navMobile.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* ── Scroll reveal ─────────────────────────────────────────────── */
+    var revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); obs.unobserve(entry.target); }
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach(function (el) { obs.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add('visible'); });
+    }
+
+    /* ── Filter dropdowns ──────────────────────────────────────────── */
+    var cards       = Array.from(document.querySelectorAll('.work-grid-card'));
+    var filterCount = document.getElementById('filterCount');
+    var filterReset = document.getElementById('filterReset');
+    var workEmpty   = document.getElementById('workEmpty');
+    var emptyReset  = document.getElementById('emptyReset');
+
+    // Dropdown elements
+    var industryDropdown = document.getElementById('industryDropdown');
+    var industryBtn      = document.getElementById('industryBtn');
+    var industryPanel    = document.getElementById('industryPanel');
+    var industryLabel    = document.getElementById('industryLabel');
+    var phaseDropdown    = document.getElementById('phaseDropdown');
+    var phaseBtn         = document.getElementById('phaseBtn');
+    var phasePanel       = document.getElementById('phasePanel');
+    var phaseLabel       = document.getElementById('phaseLabel');
+
+    var activeIndustry = null;  // null = no filter (show all)
+    var activePhase    = null;
+
+    /* Open / close a dropdown */
+    function openDropdown(dropdown, btn) {
+      closeAllDropdowns();
+      dropdown.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+    function closeAllDropdowns() {
+      [industryDropdown, phaseDropdown].forEach(function (d) {
+        d.classList.remove('open');
+      });
+      [industryBtn, phaseBtn].forEach(function (b) {
+        b.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    industryBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (industryDropdown.classList.contains('open')) { closeAllDropdowns(); }
+      else { openDropdown(industryDropdown, industryBtn); }
+    });
+    phaseBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (phaseDropdown.classList.contains('open')) { closeAllDropdowns(); }
+      else { openDropdown(phaseDropdown, phaseBtn); }
+    });
+
+    // Close on outside click or Escape
+    document.addEventListener('click', closeAllDropdowns);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeAllDropdowns();
+    });
+    [industryPanel, phasePanel].forEach(function (p) {
+      p.addEventListener('click', function (e) { e.stopPropagation(); });
+    });
+
+    /* Select an option */
+    function selectOption(panel, btn, labelEl, value, defaultLabel) {
+      // Update visual selection in panel
+      panel.querySelectorAll('.filter-option').forEach(function (opt) {
+        var isSelected = opt.dataset.value === value;
+        opt.classList.toggle('selected', isSelected);
+        opt.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+      });
+      // Update button label + active style
+      if (value) {
+        var text = panel.querySelector('[data-value="' + value + '"] span:last-child');
+        labelEl.textContent = text ? text.textContent : defaultLabel;
+        btn.classList.add('active');
+      } else {
+        labelEl.setAttribute('data-i18n', defaultLabel === industryLabel.getAttribute('data-i18n')
+          ? 'filter_industry' : 'filter_phase');
+        labelEl.textContent = defaultLabel;
+        btn.classList.remove('active');
+      }
+      closeAllDropdowns();
+    }
+
+    // Industry options
+    industryPanel.querySelectorAll('.filter-option').forEach(function (opt) {
+      opt.addEventListener('click', function () {
+        activeIndustry = opt.dataset.value || null;
+        var lang = document.documentElement.lang || 'de';
+        var def  = lang === 'en' ? 'Industry' : 'Industrie';
+        selectOption(industryPanel, industryBtn, industryLabel, opt.dataset.value, def);
+        applyFilter();
+      });
+    });
+
+    // Phase options
+    phasePanel.querySelectorAll('.filter-option').forEach(function (opt) {
+      opt.addEventListener('click', function () {
+        activePhase = opt.dataset.value || null;
+        var lang = document.documentElement.lang || 'de';
+        var def  = lang === 'en' ? 'Design Phase' : 'Design Phase';
+        selectOption(phasePanel, phaseBtn, phaseLabel, opt.dataset.value, def);
+        applyFilter();
+      });
+    });
+
+    function applyFilter() {
+      var visible = 0;
+      cards.forEach(function (card) {
+        var industries = card.dataset.industries.split(' ');
+        var phases     = card.dataset.phases.split(' ');
+        var okInd  = !activeIndustry || industries.indexOf(activeIndustry) !== -1;
+        var okPhase= !activePhase    || phases.indexOf(activePhase) !== -1;
+        var show   = okInd && okPhase;
+        card.classList.toggle('filtered-out', !show);
+        if (show) visible++;
+      });
+
+      var lang  = document.documentElement.lang || 'de';
+      var total = cards.length;
+      filterCount.innerHTML = visible === total
+        ? '<strong>' + total + '</strong> ' + (lang === 'en' ? 'Projects' : 'Projekte')
+        : '<strong>' + visible + '</strong> ' + (lang === 'en' ? 'of' : 'von') + ' ' + total + ' ' + (lang === 'en' ? 'Projects' : 'Projekten');
+
+      workEmpty.classList.toggle('visible', visible === 0);
+      filterReset.classList.toggle('visible', !!(activeIndustry || activePhase));
+    }
+
+    function resetFilters() {
+      activeIndustry = null;
+      activePhase    = null;
+      var lang = document.documentElement.lang || 'de';
+      // Reset industry
+      industryPanel.querySelectorAll('.filter-option').forEach(function (o) {
+        o.classList.toggle('selected', o.dataset.value === '');
+        o.setAttribute('aria-selected', o.dataset.value === '' ? 'true' : 'false');
+      });
+      industryLabel.textContent = lang === 'en' ? 'Industry' : 'Industrie';
+      industryBtn.classList.remove('active');
+      // Reset phase
+      phasePanel.querySelectorAll('.filter-option').forEach(function (o) {
+        o.classList.toggle('selected', o.dataset.value === '');
+        o.setAttribute('aria-selected', o.dataset.value === '' ? 'true' : 'false');
+      });
+      phaseLabel.textContent = 'Design Phase';
+      phaseBtn.classList.remove('active');
+      applyFilter();
+    }
+
+    filterReset.addEventListener('click', resetFilters);
+    emptyReset.addEventListener('click', resetFilters);
+
+    /* ── Back to top ───────────────────────────────────────────────── */
+    var btt = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function () {
+      btt.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    btt.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+    lucide.createIcons();
+
+  })();
+
+
+  </script>
+
+</body>
+</html>
